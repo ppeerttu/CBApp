@@ -21,7 +21,7 @@ var Message = Database.sequelize.define('Message', {
 
 
 var Room = Database.sequelize.define('Room', {
-    id: { type: DatabaseDataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    id: { type: Database.DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     name: Database.DataTypes.STRING
 });
 
