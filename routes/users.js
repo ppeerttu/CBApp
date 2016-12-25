@@ -119,7 +119,7 @@ router.post('/', function (req, res, next) {
                     userToAdd.fbId = 'not_set';
                     Models.User.create(userToAdd).then(function (added) {
                         console.log("User added with nickname: " + added.nickname);
-                        user.password = '';
+                        added.password = '';
                         res.json(added);
                     });
                 }

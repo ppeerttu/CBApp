@@ -9,3 +9,10 @@ module.exports = {
   DataTypes: Sequelize,
   sequelize: sequelize
 };
+
+/* FOR LOCAL DEVELOPMENT
+var sequelize = new Sequelize('cbapp', '', '', {
+  dialect: 'sqlite',
+  storage: 'db/CBApp.database'
+});
+*/
