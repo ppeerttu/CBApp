@@ -1,0 +1,35 @@
+div #chat-messages, #users-fixed {
+    overflow-y: auto !important;
+    overflow-wrap: normal !important;
+    max-height: 20em !important;
+}
+
+div #users-fixed {
+    display: inline-box;
+}
+
+div #users-fixed p {
+    text-align: left;
+}
+
+div #users-fixed img {
+    float: left;
+}
+
+html {
+  position: relative !important;
+  min-height: 100% !important;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 40px !important;
+}
+footer {
+  margin-top: 10px !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  /* Set the fixed height of the footer here */
+  height: 30px !important;
+  background-colour: white !important;
+}

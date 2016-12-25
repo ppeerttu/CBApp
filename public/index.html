@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CBApp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- styles -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="app/styles/style.css" type="text/css">
+
+        <!-- jQuery & bootstrap scripts -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- angular-scripts -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+
+        <!-- socketIO -->
+        <script src="bower_components/socket.io.min.js"></script>
+
+        <!-- CBApp scripts -->
+        <script src="app/app.min.js"></script>
+
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '374990816179923',
+                    xfbml: true,
+                    version: 'v2.8',
+                    status: true,
+                    cookie: true
+                });
+                FB.AppEvents.logPageView();
+                angular.bootstrap(document, ['CBApp']);
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </head>
+    <body>
+        <nav  id="navigation-container" class="container navbar navbar-inverse" ng-if="userLoggedIn">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/main">CBApp</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/chat">Chat</a></li>
+                        <li class="disabled"><a>Blog</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/about">About</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{profile.nickname}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/profile">My profile</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" ng-click="logOut()">Log out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div ng-view>
+        </div>
+        <footer class="navbar-fixed-bottom">
+            <div class="container">
+                <p class="text-muted">@2016 Perttu Kärnä / <a href="#/about">About</a></p>
+            </div>
+        </footer>
+    </body>
+</html>
