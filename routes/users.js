@@ -15,27 +15,12 @@ function checkPassword(pass) {
 }
 
 
-// for testing routes and registration
-router.get('/', function (req, res, next) {
-    Models.User.findAll().then(function (users) {
-        res.json(users);
-    });
-});
-
 // authenticating with facebook
 router.post('/fb_authenticate', function (req, res, next) {
     var fbUser = req.body;
     Models.User.findOne({
         where: {
-            $or: [{
-                    email: fbUser.email,
-                    fbId: fbUser.fbId
-                },
-                {
-                    firstName: fbUser.firstName,
-                    lastName: fbUser.lastName,
-                    fbId: fbUser.fbId
-                }]
+            fbId: fbUser.fbId
         }
     }).then(function (user) {
         if (user) {
@@ -101,14 +86,15 @@ router.post('/', function (req, res, next) {
 
     Models.User.findOne({
         where: {
-            nickname: userToAdd.nickname,
             $or: [
-                {email: userToAdd.email}
+                {email: userToAdd.email},
+                {nickname: userToAdd.nickname}
             ]
         }
     }).then(function (user) {
+        console.log('Found: ' + user);
         if (user) {
-            res.status(400).json({error: 'Nickname not available!'});
+            res.status(400).json({error: 'Nickname or email already in use!'});
         } else {
             bcrypt.hash(userToAdd.password, null, null, function (err, hash) {
                 if (err) {

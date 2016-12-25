@@ -44,6 +44,8 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
                 $scope.newUser.fbId = 'not_set';
                 APIService.register($scope.newUser).success(function (user) {
                     $location.path('/login');
+                }).error(function (error) {
+                    $scope.regError = error.error;
                 });
             }
         }
