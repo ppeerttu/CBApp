@@ -18,17 +18,11 @@ app.set('port', port);
  * Create HTTP server.
  */
 var httpServer = require('http').Server(app);
-/*
- *  For creating HTTPS server
-var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
-var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
-var httpsServer = require(credentials, 'https').Server(app);
-*/
+
+
 
 var io = app.io;
 io.attach(httpServer);
-
 
 
 
