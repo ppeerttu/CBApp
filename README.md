@@ -46,11 +46,54 @@ index.js contains datatypes for database and relations between datatypes.
 #### /node_modules
 Contains all node modules, such as Express, bCrypt and so on.
 
-#### /public  --> FRONT-END
+#### /routes
+Contains express routes:
+* index.js
+Renders homepage
+* users.js
+Contains API-calls for user management - such as registering, loggin in and checking current authentication.
+* rooms.js
+Contains API-calls for room management - such as creating and getting rooms. Also Socket.io backend is stored there.
+
+#### /utils
+* authentication.js
+This file contains method to check user's authentication - used in calls in route /rooms for example.
+
+#### /views
+Contains two files:
+* index.jade
+Imports index.html
+* error.jade
+Empty file at the moment.
+
+#### .bowerrc
+
+#### Gruntfile.js
+Contains configuration for Grunt tasks.
+
+#### Procfile
+For deploying app in heroku.
+
+#### app.js
+For generating backend -app, importing necessary stuff in it and configuring errorhandlers.
+
+#### bower.json
+Configuring Bower dependencies.
+
+#### package.json
+Configuring NodeJS dependencies.
+
+
+### Frontend
+
+#### /public
 * app -folder
 * bower_components -folder
 * index.html contains basic elements of application UI, single-page contents locate at /public/app/views
 * favicon.ico
+
+#### /public/bower_components
+Contains front-end frameworks and tools such as AngularJS and jQuery files.
 
 #### /public/app
 * controllers -folder
@@ -59,4 +102,41 @@ Contains all node modules, such as Express, bCrypt and so on.
 * views -folder
 
 ##### /public/app/controllers
+* chatController.js
+Provides model for livechat, uses APIService and Socket -service to get and create chatrooms and chat messages. Facebook's SDK provides 
+possibility for adding profilephoto in chat's participants -view.
+* mainController.js
+Provides model for viewing simple userdata, such as full name, nickname and profilephoto for Facebook users.
+* userController.js
+Provides model for creating new user via email and Facebook, and logging user in both ways.
 
+##### /public/app/services
+* APIService.js
+This service communicates with backend API - contains all the $http get and post methods.
+* socket.js
+This factory works as a service to communicate with backend socket.io.
+
+##### /public/app/styles
+
+* styles.css
+Added few lines of customized style for couple elements.
+
+##### /public/app/views
+* about.html
+Contains information about this application.
+* chat.html
+Contains view for chat feature.
+* login.html
+Contains view for login form.
+* register.html
+Contains view for register form.
+* main.html
+Contains currently view for single jumbotron - might grow up pretty much in the future.
+* profile.html
+Displays user's info
+
+##### app.js
+Contains configuration for app - such as config -module for single-page routing and run -module.
+
+##### app.min.js
+Contains all JavaScript code in /public/app -folder in minified form.
