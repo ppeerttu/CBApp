@@ -1,3 +1,5 @@
+
+/* Special styles for chat and chatusers */
 div #chat-messages, #users-fixed {
     overflow-y: auto !important;
     overflow-wrap: normal !important;
@@ -15,7 +17,7 @@ div #users-fixed p {
 div #users-fixed img {
     float: left;
 }
-
+/* Special styles for page footer */
 html {
   position: relative !important;
   min-height: 100% !important;

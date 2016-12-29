@@ -1,4 +1,5 @@
 
+// SEEDFILE FOR POSTGRESQL
 
 var Database = require('./connection');
 

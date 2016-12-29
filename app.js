@@ -7,12 +7,12 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var socket = require('socket.io');
 
-
-
 var app = express();
+//setting up socket.io
 var io = socket();
 app.io = io;
 
+//importing socket.io to /rooms
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var rooms = require('./routes/rooms')(io);  

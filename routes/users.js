@@ -16,6 +16,9 @@ function checkPassword(pass) {
 
 
 // authenticating with facebook
+// This route makes sure that if the user authenticating via facebook has already registered
+// via email, fbId will be updated to the old email-account and it be used to authenticate
+// to the backend
 router.post('/fb_authenticate', function (req, res, next) {
     var fbUser = req.body;
     Models.User.findOne({

@@ -1,16 +1,14 @@
-CBApp.controller('MainController', ['$scope', '$location', 'userLoggedIn', 'APIService',
-    function ($scope, $location, userLoggedIn, APIService) {
-
+CBApp.controller('MainController', ['$scope', '$location', 'userLoggedIn',
+    function ($scope, $location, userLoggedIn) {
+    //CHECKING USER AUTHENTICATION
     if (!userLoggedIn.data.nickname) {
         $location.path('/login');
     }
-
+    
+    //GETTING USERDATA
     $scope.currentUser = userLoggedIn.data;
 
-    APIService.getRooms().success(function (rooms) {
-        $scope.rooms = rooms;
-    });
-
+    //GETTING USERPICTURE
     FB.api('/me', {
         fields: 'picture.width(9999).height(9999)'
     }, function (response) {

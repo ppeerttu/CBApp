@@ -1,14 +1,16 @@
 CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$location', 'userLoggedIn', '$cookies',
     function ($rootScope, $scope, APIService, $location, userLoggedIn, $cookies) {
-
+    //CHECKING USER AUTHENTICATION
     if (userLoggedIn.data.nickname) {
         $location.path('/main');
     }
-
+    
+    //REDIRECT FUNCTION FOR REGISTER-TEMPLATE'S BACK -BUTTON
     $scope.redirect = function () {
         $location.path('/login');
     };
 
+    //LOGIN-FUNCTION FOR FACEBOOK AUTHENTICATION
     $scope.onFBlogin = function () {
         FB.login(function (response) {
             if (response.authResponse) {
@@ -33,6 +35,7 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
         });
     };
 
+    //REGISTER FUNCTION TO REGISTER VIA EMAIL
     $scope.register = function () {
         if (typeof $scope.newUser !== 'undefined') {
             if ($scope.newUser.firstName.length < 2 || $scope.newUser.nickname.length < 3 || $scope.newUser.password.length < 8) {
@@ -51,6 +54,7 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
         }
     };
     
+    // LOGINFUNCTION WITHOUT FACEBOOK AUTHENTICATION
     $scope.login = function () {
         if (typeof $scope.user !== 'undefined') {
             APIService.login($scope.user).success(function (user) {

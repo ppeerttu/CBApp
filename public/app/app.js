@@ -1,6 +1,8 @@
 var CBApp = angular.module('CBApp', ['ngRoute', 'validation.match','ngCookies']);
 
 CBApp.config(['$routeProvider', function ($routeProvider) {
+    // Configuring single-page routes
+    // Resolve checks whether user has authentication or not
     $routeProvider
             .when('/login', {
                 controller: 'UserController',
@@ -67,12 +69,14 @@ CBApp.config(['$routeProvider', function ($routeProvider) {
 
 CBApp.run(['$rootScope', '$location', 'APIService', '$cookies', function ($rootScope, $location, APIService, $cookies) {
     
+    // Getting user info from cookies in case user has refreshed page
     var cookies = $cookies.get('profile');
     if (typeof cookies !== 'undefined' && cookies !== null) {
         var parsedCookies = JSON.parse(cookies);
         $rootScope.profile = parsedCookies;
     }
     
+    // Providing logout -method for root element
     $rootScope.logOut = function () {
         APIService.logout().success(function () {
             $location.path('/login');

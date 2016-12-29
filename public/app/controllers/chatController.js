@@ -1,6 +1,7 @@
 CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService', '$location', 'userLoggedIn',
     function ($rootScope, $scope, Socket, APIService, $location, userLoggedIn) {
 
+    //CHECKING USER AUTHENTICATION
     if (!userLoggedIn.data.nickname) {
         $location.path('/login');
     }

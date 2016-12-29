@@ -1,4 +1,5 @@
 CBApp.factory('Socket',['$rootScope', function ($rootScope) {
+    //SERVICE FOR SOCKET.IO CLIENT
     var socket = io.connect();
     return {
         on: function (eventName, callback) {

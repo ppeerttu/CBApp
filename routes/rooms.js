@@ -6,7 +6,7 @@ module.exports = function (io) {
     var authentication = require('../utils/authentication');
     var Models = require('../models');
 
-    //adding new room
+//adding new room
 // POST /rooms
     router.post('/', authentication, function (req, res, next) {
         var roomToAdd = req.body;
@@ -32,6 +32,7 @@ module.exports = function (io) {
         });
     });
 
+// socket.io functionality
     io.on('connection', function (socket) {
 
         // JOINING ROOM
