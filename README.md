@@ -38,4 +38,25 @@ The backend for this application is provided with NodeJS and Express, using Sequ
 Contains www.js for starting HTTP server, setting port, ip etc.
 
 #### /db
-Contains seed.js for Postgres database initialization. 
+Contains seed.js for Postgres database initialization and connection.js for connecting Sequelize with database.
+
+#### /models
+index.js contains datatypes for database and relations between datatypes.
+
+#### /node_modules
+Contains all node modules, such as Express, bCrypt and so on.
+
+#### /public  --> FRONT-END
+* app -folder
+* bower_components -folder
+* index.html contains basic elements of application UI, single-page contents locate at /public/app/views
+* favicon.ico
+
+#### /public/app
+* controllers -folder
+* services -folder
+* styles -folder
+* views -folder
+
+##### /public/app/controllers
+
