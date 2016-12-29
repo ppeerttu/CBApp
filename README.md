@@ -27,3 +27,15 @@ well.
 * jQuery
 * Bootstrap
 * Facebook SDK for JavaScript
+
+
+## Structure
+
+### Backend
+The backend for this application is provided with NodeJS and Express, using Sequelize library and SQLite (Postgres in Heroku) as handling database. Socket.io provides live-chat features. Filestructure below explains more about solutions for backend.
+
+#### /bin
+Contains www.js for starting HTTP server, setting port, ip etc.
+
+#### /db
+Contains seed.js for Postgres database initialization. 
