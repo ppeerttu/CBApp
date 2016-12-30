@@ -20,7 +20,9 @@ app.set('port', port);
 var httpServer = require('http').Server(app);
 
 
-
+/**
+ * Attach server to socket.io
+ */
 var io = app.io;
 io.attach(httpServer);
 

@@ -56,7 +56,12 @@ router.post('/fb_authenticate', function (req, res, next) {
                         });
                     });
                 } else {
-                    var pass = 'k2sad2SD2zwcöhtH';
+                    var abcs = 'abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ1234567890';
+                    var pass = '';
+                    for (i = 0; i < 8; i++) {
+                        var index = Math.floor(Math.random() * abcs.length);
+                        pass += abcs.charAt(index);
+                    }
                     bcrypt.hash(pass, null, null, function (err, hash) {
                         if (err) {
                             console.log(err);
