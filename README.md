@@ -85,6 +85,7 @@ Configuring NodeJS dependencies.
 
 
 ### Frontend
+Frontend is located in /public and uses AngularJS as core application.
 
 #### /public
 * app -folder
