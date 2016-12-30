@@ -167,7 +167,7 @@ Contains all JavaScript code in /public/app -folder in minified form.
 As you can see when looking into the code or using the running app, this project is still badly in development and probably
 never will be finished. Two badly executed behaviours still do stand out of the app:
 
-### Backend pass creation for Facebook user
+### Backend pass creation for Facebook user -- FIXED
 
 No unique password will be generated for Facebook user - instead same password will be set for all Facebook users.
 This flaw will be taken care of as soon as I can.
