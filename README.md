@@ -7,9 +7,9 @@ perttu.karna@gmail.com
 
 ## About
 This web-app is made as hobby to improve web-developing skills and deepen my understanding of basic tools for both front- and 
-backend developing. Currently this app is running on heroku url: https://arcane-beyond-54795.herokuapp.com/#/login and it provides
-simple chat functionality with different rooms user can join and create. In the future there might be kind of a blog service as
-well.
+backend developing. Currently this app is running on heroku url: https://arcane-beyond-54795.herokuapp.com/#/login and 
+it providessimple chat functionality with different rooms user can join and create. In the future there might be kind of a
+blog service as well.
 
 
 ## Techs
@@ -140,3 +140,17 @@ Contains configuration for app - such as config -module for single-page routing 
 
 ##### app.min.js
 Contains all JavaScript code in /public/app -folder in minified form.
+
+## Known issues
+
+As you can see when looking into the code or using the running app, this project is still badly in development and probably
+never will be finished. Two badly executed behaviours still do stand out of the app:
+
+### Backend pass creation for Facebook user
+
+No unique password will be generated for Facebook user - instead same password will be set for all Facebook users.
+This flaw will be taken care of as soon as I can.
+
+### No opportunity to change user data
+
+Currently backend doesn't provide an opportunity for frontend to post any kind of change to the user's data.
