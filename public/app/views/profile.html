@@ -1,15 +1,7 @@
 
 <div id="profile-container" class="container" onload="checkLogin()">
     <div class="row">
-        <div id="left-container" class="col-xs-12 col-sm-6 col-md-4">
-            <div class="row">
-                <div id="img-container" class="col-xs-12 col-sm-12 col-md-12">
-                </div>
-                <div id="message-container" class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="alert alert-success" ng-if="message">{{message}}</div>
-                    <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
-                </div>
-            </div>
+        <div id="img-container" class="col-xs-12 col-sm-6 col-md-4">
         </div>
         <form name="profileForm">
         <div class="col-xs-12 col-sm-6 col-md-8">
@@ -50,6 +42,8 @@
                     <div class="alert alert-danger" ng-show="profileForm.confirmPassword.$error.match && profileForm.confirmPassword.$dirty">Passwords do not match!</div>
                 </div>
             </div>
+            <div class="alert alert-success" ng-if="message">{{message}}</div>
+            <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
             <p class="primary">Fill in your current password if you want change only your nickname.</p>
             <button class="btn btn-primary" type="button" ng-click="updatePassword()" ng-disabled="profileForm.$invalid">Update</button>
         </div>

@@ -4,7 +4,7 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
     if (userLoggedIn.data.nickname) {
         $location.path('/main');
     }
-    
+
     //REDIRECT FUNCTION FOR REGISTER-TEMPLATE'S BACK -BUTTON
     $scope.redirect = function () {
         $location.path('/login');
@@ -49,11 +49,12 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
                     $location.path('/login');
                 }).error(function (error) {
                     $scope.regError = error.error;
+                    $scope.newUser.lastName = '';
                 });
             }
         }
     };
-    
+
     // LOGINFUNCTION WITHOUT FACEBOOK AUTHENTICATION
     $scope.login = function () {
         if (typeof $scope.user !== 'undefined') {
@@ -69,5 +70,3 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
         }
     };
 }]);
-
-

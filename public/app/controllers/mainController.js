@@ -26,6 +26,7 @@ CBApp.controller('MainController', ['$rootScope', '$scope', '$location', 'userLo
             $scope.currentUser.password = $scope.newPass;
             if ($scope.currentUser.nickname !== null && $scope.currentUser.nickname !== '' && $scope.currentUser.nickname.length > 2) {
                 APIService.updatePassword($scope.currentUser).success(function (user) {
+                    $scope.errorMessage = null;
                     $scope.confirmPassword = '';
                     $scope.newPass = '';
                     $scope.message  = 'Update successful!';
@@ -34,6 +35,7 @@ CBApp.controller('MainController', ['$rootScope', '$scope', '$location', 'userLo
                     $cookies.putObject('profile', user);
                 }).error(function(error) {
                     $scope.errorMessage = error.error;
+                    $scope.message = null;
                 });
             }
     }
