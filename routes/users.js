@@ -13,11 +13,20 @@ function checkPassword(pass) {
     var regEx = /(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/;
     return regEx.test(pass);
 }
-
+// for developing purposes
+/*
+router.get('/all', function (req, res, next) {
+    Models.User.findAll().then(function(users) {
+        res.json(users);
+    }).error(function(error) {
+        res.send(400).json(error);
+    })
+})
+*/
 
 // authenticating with facebook
 // This route makes sure that if the user authenticating via facebook has already registered
-// via email, fbId will be updated to the old email-account and it be used to authenticate
+// via email, fbId will be updated to the old email-account and it will be used to authenticate
 // to the backend
 router.post('/fb_authenticate', function (req, res, next) {
     var fbUser = req.body;
@@ -38,27 +47,19 @@ router.post('/fb_authenticate', function (req, res, next) {
                 }
             }).then(function (user) {
                 if (user) {
-                    Models.User.upsert({
-                        where: {
-                            id: user.id
-                        }
-                    }['firstName', 'lastName', 'fbId']).then(function (response) {
-                        console.log('Userdata connected with Facebook');
-                        Models.User.findOne({
-                            where: {
-                                email: fbUser.email
-                            }
-                        }).then(function (user) {
-                            console.log('User authenticated');
-                            req.session.userId = user.id;
-                            user.password = '';
-                            res.json(user);
-                        });
+                    user.update({
+                        firstName: fbUser.firstName,
+                        lastName: fbUser.lastName,
+                        fbId: fbUser.fbId
+                    }).then(function (response) {
+                        console.log('Userdata connected with Facebook and authenticated');
+                        response.password  = '';
+                        res.json(response);
                     });
                 } else {
                     var abcs = 'abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ1234567890';
                     var pass = '';
-                    for (i = 0; i < 8; i++) {
+                    for (var i = 0; i < 8; i++) {
                         var index = Math.floor(Math.random() * abcs.length);
                         pass += abcs.charAt(index);
                     }
@@ -67,14 +68,13 @@ router.post('/fb_authenticate', function (req, res, next) {
                             console.log(err);
                         } else {
                             fbUser.password = hash;
-                            console.log("Created passHash: " + hash);
+                            Models.User.create(fbUser).then(function (user) {
+                                console.log('Created new user via FB-login with nickname: ' + user.nickname);
+                                req.session.userId = user.id;
+                                user.password = '';
+                                res.json(user);
+                            });
                         }
-                    });
-                    Models.User.create(fbUser).then(function (user) {
-                        console.log('Created new user via FB-login with nickname: ' + user.nickname);
-                        req.session.userId = user.id;
-                        user.password = '';
-                        res.json(user);
                     });
                 }
             });
@@ -172,6 +172,57 @@ router.get('/logout', function (req, res, next) {
     console.log("UserId " + req.session.userId + " session stopped");
     req.session.userId = null;
     res.sendStatus(200);
+});
+
+// update password and nickname
+router.put('/update', function (req, res, next) {
+    var toUpdate = req.body;
+    console.log('toUpdate: ' + toUpdate.id + ' + ' + toUpdate.nickname);
+    //validating update info
+    if (toUpdate.nickname.length < 3 || !checkPassword(toUpdate.password)) {
+        res.status(404).json({error: 'Password or nickname do not meet requirements!'});
+    }
+    Models.User.findOne({
+        where: {
+            nickname: toUpdate.nickname
+        }
+    }).then(function(user) {
+        if (user === null || user.id === toUpdate.id) {
+                var pass = toUpdate.password;
+                console.log('Going to hash');
+                bcrypt.hash(pass, null, null, function (err, hash) {
+                    if (err) {
+                        console.log(err);
+                        res.status(400).json({error: 'Error occurred while creating passhash: ' + err});
+                    } else {
+                        toUpdate.password = hash;
+                        console.log('Created hash: ' + toUpdate.password);
+                        Models.User.update({
+                            nickname: toUpdate.nickname,
+                            password: toUpdate.password
+                        },{
+                            where: {
+                                id: toUpdate.id
+                            }
+                        }).then(function (response) {
+                            if (response[0] === 0) {
+                                res.status(400).json({error: "Update failed!"});
+                            } else {
+                                Models.User.findOne(toUpdate.id).then(function(resUser) {
+                                    resUser.password = '';
+                                    res.json(resUser);
+                                });
+                            }
+                        });
+                    }
+                });
+        } else if (user) {
+            res.status(400).json({error: "Nickname not available!"});
+        } else {
+            res.status(400).json({error: "Error occurred while updating info!"});
+        }
+    })
+
 });
 
 module.exports = router;

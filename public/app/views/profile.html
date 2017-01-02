@@ -1,11 +1,26 @@
 
 <div id="profile-container" class="container" onload="checkLogin()">
     <div class="row">
-        <div id="img-container" class="col-xs-12 col-sm-6 col-md-4">
+        <div id="left-container" class="col-xs-12 col-sm-6 col-md-4">
+            <div class="row">
+                <div id="img-container" class="col-xs-12 col-sm-12 col-md-12">
+                </div>
+                <div id="message-container" class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="alert alert-success" ng-if="message">{{message}}</div>
+                    <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
+                </div>
+            </div>
         </div>
+        <form name="profileForm">
         <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="well">
-                <label>Nickname: </label><p class="primary"><strong>{{currentUser.nickname}}</strong></p>
+                <div class="form-group">
+                    <label>Nickname: </label>
+                    <input type="text" name="nickname" class="form-control" ng-model="currentUser.nickname" min-length="3" required>
+                    <div class="alert alert-danger" ng-show="profileForm.nickname.$dirty && profileForm.nickname.$invalid">
+                        Nickname should be at least three characters long.
+                    </div>
+                </div>
             </div>
 
             <div class='well'>
@@ -19,6 +34,25 @@
             <div class="well">
                 <label>Email: </label><p class="primary"><strong>{{currentUser.email}}</strong></p>
             </div>
+
+            <div class="well">
+                <div class="form-group">
+                    <label>New password: </label>
+                    <input class="form-control" name="newPass" type="password" ng-model="newPass" required ng-pattern='/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/' ng-minlength="8">
+                    <div class="alert alert-danger" ng-show="profileForm.newPass.$invalid && profileForm.newPass.$dirty">
+                        Password should be at least 8 characters long and contain at least one uppercase and lowercase character and a number.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Re-type password: </label>
+                    <input class="form-control" ng-model="confirmPassword" type="password" name="confirmPassword" ng-model="confirmPassword" required match="newPass">
+                    <div class="alert alert-danger" ng-show="profileForm.confirmPassword.$error.match && profileForm.confirmPassword.$dirty">Passwords do not match!</div>
+                </div>
+            </div>
+            <p class="primary">Fill in your current password if you want change only your nickname.</p>
+            <button class="btn btn-primary" type="button" ng-click="updatePassword()" ng-disabled="profileForm.$invalid">Update</button>
         </div>
+        </form>
     </div>
 </div>
