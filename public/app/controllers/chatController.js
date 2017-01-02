@@ -28,7 +28,7 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
             $scope.elementsPrinted.push({id: data.id});
             var url = '/' + data.fbId;
             FB.api(url, {
-                fields: 'first_name,picture.type(small)'
+                fields: 'picture.type(small)'
             }, function (response) {
                 if (!response || response.error) {
                     console.log(response.error);
@@ -39,7 +39,7 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
                     var dom_p = document.createElement("p");
                     dom_p.className = "text-primary col-xs-9 col-sm-9 col-md-9";
                     var strong = document.createElement("strong");
-                    var node = document.createTextNode(response.first_name);
+                    var node = document.createTextNode(data.nickname);
                     strong.appendChild(node);
                     dom_p.appendChild(strong);
                     var dom_img = document.createElement("img");
@@ -260,4 +260,3 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
         $scope.leaveRoom();
     };
 }]);
-

@@ -14,9 +14,11 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
     $scope.onFBlogin = function () {
         FB.login(function (response) {
             if (response.authResponse) {
+                console.log()
                 FB.api('/me', {
                     fields: ['first_name', 'last_name', 'email']
                 }, function (response) {
+                    console.log(response);
                     var newUser = {
                         firstName: response.first_name,
                         lastName: response.last_name,
@@ -32,7 +34,7 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
                     });
                 });
             }
-        });
+        }, {scope: 'public_profile,email'});
     };
 
     //REGISTER FUNCTION TO REGISTER VIA EMAIL

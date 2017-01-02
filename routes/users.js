@@ -13,8 +13,8 @@ function checkPassword(pass) {
     var regEx = /(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/;
     return regEx.test(pass);
 }
-// for developing purposes
-/*
+
+/* for developing purposes
 router.get('/all', function (req, res, next) {
     Models.User.findAll().then(function(users) {
         res.json(users);
