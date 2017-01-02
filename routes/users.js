@@ -14,7 +14,7 @@ function checkPassword(pass) {
     return regEx.test(pass);
 }
 // for developing purposes
-
+/*
 router.get('/all', function (req, res, next) {
     Models.User.findAll().then(function(users) {
         res.json(users);
@@ -22,7 +22,7 @@ router.get('/all', function (req, res, next) {
         res.send(400).json(error);
     })
 })
-
+*/
 
 // authenticating with facebook
 // This route makes sure that if the user authenticating via facebook has already registered
@@ -177,7 +177,6 @@ router.get('/logout', function (req, res, next) {
 // update password and nickname
 router.put('/update', function (req, res, next) {
     var toUpdate = req.body;
-    console.log('toUpdate: ' + toUpdate.id + ' + ' + toUpdate.nickname);
     //validating update info
     if (toUpdate.nickname.length < 3 || !checkPassword(toUpdate.password)) {
         res.status(404).json({error: 'Password or nickname do not meet requirements!'});
@@ -189,14 +188,12 @@ router.put('/update', function (req, res, next) {
     }).then(function(user) {
         if (user === null || user.id === toUpdate.id) {
                 var pass = toUpdate.password;
-                console.log('Going to hash');
                 bcrypt.hash(pass, null, null, function (err, hash) {
                     if (err) {
                         console.log(err);
                         res.status(400).json({error: 'Error occurred while creating passhash: ' + err});
                     } else {
                         toUpdate.password = hash;
-                        console.log('Created hash: ' + toUpdate.password);
                         Models.User.update({
                             nickname: toUpdate.nickname,
                             password: toUpdate.password
