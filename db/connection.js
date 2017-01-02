@@ -9,7 +9,7 @@ var sequelize = new Sequelize('postgres://abajeoneynnezq:77960af7b420a65441cfdb7
 var sequelize = new Sequelize('cbapp', '', '', {
   dialect: 'sqlite',
   storage: 'db/CBApp.database'
-});*/
+}); */
 
 module.exports = {
   DataTypes: Sequelize,
