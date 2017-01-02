@@ -49,22 +49,28 @@ Contains all node modules, such as Express, bCrypt and so on.
 #### /routes
 Contains express routes:
 * index.js
-Renders homepage
+
+*Renders homepage*
 * users.js
-Contains API-calls for user management - such as registering, loggin in and checking current authentication.
+
+*Contains API-calls for user management - such as registering, loggin in and checking current authentication.*
 * rooms.js
-Contains API-calls for room management - such as creating and getting rooms. Also Socket.io backend is stored there.
+
+*Contains API-calls for room management - such as creating and getting rooms. Also Socket.io backend is stored there.*
 
 #### /utils
 * authentication.js
-This file contains method to check user's authentication - used in calls in route /rooms for example.
+
+*This file contains method to check user's authentication - used in calls in route /rooms for example.*
 
 #### /views
 Contains two files:
 * index.jade
-Imports index.html
+
+*Imports index.html*
 * error.jade
-Empty file at the moment.
+
+*Empty file at the moment.*
 
 #### .bowerrc
 
@@ -85,11 +91,14 @@ Configuring NodeJS dependencies.
 
 
 ### Frontend
+Frontend is located in /public and uses AngularJS as core application.
 
 #### /public
 * app -folder
 * bower_components -folder
-* index.html contains basic elements of application UI, single-page contents locate at /public/app/views
+* index.html 
+
+*Contains basic elements of application UI, single-page contents locate at /public/app/views*
 * favicon.ico
 
 #### /public/bower_components
@@ -103,37 +112,49 @@ Contains front-end frameworks and tools such as AngularJS and jQuery files.
 
 ##### /public/app/controllers
 * chatController.js
-Provides model for livechat, uses APIService and Socket -service to get and create chatrooms and chat messages. Facebook's SDK provides 
-possibility for adding profilephoto in chat's participants -view.
+
+*Provides model for livechat, uses APIService and Socket -service to get and create chatrooms and chat messages. Facebook's SDK provides
+possibility for adding profilephoto in chat's participants -view.*
 * mainController.js
-Provides model for viewing simple userdata, such as full name, nickname and profilephoto for Facebook users.
+
+*Provides model for viewing simple userdata, such as full name, nickname and profilephoto for Facebook users.*
 * userController.js
-Provides model for creating new user via email and Facebook, and logging user in both ways.
+
+*Provides model for creating new user via email and Facebook, and logging user in both ways.*
 
 ##### /public/app/services
 * APIService.js
-This service communicates with backend API - contains all the $http get and post methods.
+
+*This service communicates with backend API - contains all the $http get and post methods.*
 * socket.js
-This factory works as a service to communicate with backend socket.io.
+
+*This factory works as a service to communicate with backend socket.io.*
 
 ##### /public/app/styles
 
 * styles.css
-Added few lines of customized style for couple elements.
+
+*Added few lines of customized style for couple elements.*
 
 ##### /public/app/views
 * about.html
-Contains information about this application.
+
+*Contains information about this application.*
 * chat.html
-Contains view for chat feature.
+
+*Contains view for chat feature.*
 * login.html
-Contains view for login form.
+
+*Contains view for login form.*
 * register.html
-Contains view for register form.
+
+*Contains view for register form.*
 * main.html
-Contains currently view for single jumbotron - might grow up pretty much in the future.
+
+*Contains currently view for single jumbotron - might grow up pretty much in the future.*
 * profile.html
-Displays user's info
+
+*Displays user's info*
 
 ##### app.js
 Contains configuration for app - such as config -module for single-page routing and run -module.
@@ -146,7 +167,7 @@ Contains all JavaScript code in /public/app -folder in minified form.
 As you can see when looking into the code or using the running app, this project is still badly in development and probably
 never will be finished. Two badly executed behaviours still do stand out of the app:
 
-### Backend pass creation for Facebook user
+### Backend pass creation for Facebook user -- FIXED
 
 No unique password will be generated for Facebook user - instead same password will be set for all Facebook users.
 This flaw will be taken care of as soon as I can.
