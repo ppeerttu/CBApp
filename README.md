@@ -6,8 +6,8 @@ perttu.karna@gmail.com
 
 
 ## About
-This web-app is made as hobby to improve web-developing skills and deepen my understanding of basic tools for both front- and 
-backend developing. Currently this app is running on heroku url: https://arcane-beyond-54795.herokuapp.com/#/login and 
+This web-app is made as hobby to improve web-developing skills and deepen my understanding of basic tools for both front- and
+backend developing. Currently this app is running on heroku url: https://arcane-beyond-54795.herokuapp.com/#/login and
 it providessimple chat functionality with different rooms user can join and create. In the future there might be kind of a
 blog service as well.
 
@@ -27,6 +27,20 @@ blog service as well.
 * jQuery
 * Bootstrap
 * Facebook SDK for JavaScript
+
+## To get this project run locally
+
+### Prerequisites:
+* NodeJS installed
+* Bower installed
+
+1. Get the project to your local environment for example by:
+..* Fork project to your git repository
+..* Clone the project to your chosen path with `git clone YOUR_FORK_PROJECT_REPO_URL`
+2. Run `npm install` and `bower install` in project root
+3. Edit Facebook SDK's initialization script in file /public/index.html by placing your Facebook app's id
+to the `appId`-field
+4. Start the server with `node bin/www` at project root
 
 
 ## Structure
@@ -96,7 +110,7 @@ Frontend is located in /public and uses AngularJS as core application.
 #### /public
 * app -folder
 * bower_components -folder
-* index.html 
+* index.html
 
 *Contains basic elements of application UI, single-page contents locate at /public/app/views*
 * favicon.ico
@@ -172,6 +186,8 @@ never will be finished. Two badly executed behaviours still do stand out of the 
 No unique password will be generated for Facebook user - instead same password will be set for all Facebook users.
 This flaw will be taken care of as soon as I can.
 
-### No opportunity to change user data
+### No opportunity to change user data -- IMPROVED
 
 Currently backend doesn't provide an opportunity for frontend to post any kind of change to the user's data.
+
+IMPROVED: Users can now change password and nickname.
