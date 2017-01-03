@@ -31,7 +31,7 @@ blog service as well.
 ## To get this project run locally
 
 ### Prerequisites:
-* NodeJS installed
+* Node package manager installed
 * Bower installed
 
 ### Todo
