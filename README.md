@@ -34,6 +34,8 @@ blog service as well.
 * NodeJS installed
 * Bower installed
 
+### Todo
+
 1. Get the project to your local environment for example by:
     * Fork project to your git repository
     * Clone the project to your chosen path with `git clone YOUR_FORK_PROJECT_REPO_URL`
