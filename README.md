@@ -35,8 +35,8 @@ blog service as well.
 * Bower installed
 
 1. Get the project to your local environment for example by:
-* Fork project to your git repository
-* Clone the project to your chosen path with `git clone YOUR_FORK_PROJECT_REPO_URL`
+    * Fork project to your git repository
+    * Clone the project to your chosen path with `git clone YOUR_FORK_PROJECT_REPO_URL`
 2. Run `npm install` and `bower install` in project root
 3. Edit Facebook SDK's initialization script in file /public/index.html by placing your Facebook app's id
 to the `appId`-field
