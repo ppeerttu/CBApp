@@ -10,28 +10,362 @@ div #users-fixed {
     display: inline-box;
 }
 
-div #users-fixed p {
-    text-align: left;
-}
 
 div #users-fixed img {
     float: left;
 }
+
+@media screen and (max-width: 768px) {
+    div #send-show-messages {
+        margin-bottom: 20px;
+    }
+
+}
+
+/* css for blogpost.html post info */
+div #post-info {
+    text-align: center;
+    margin: 1em auto;
+}
+
 /* Special styles for page footer */
 html {
   position: relative !important;
   min-height: 100% !important;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 40px !important;
+    /* Margin bottom by footer height */
+    margin-bottom: 40px !important;
+    padding-bottom: 40px;
+    background-color: #f7f7f5;
 }
 footer {
   margin-top: 10px !important;
   position: absolute !important;
   bottom: 0 !important;
   width: 100% !important;
-  /* Set the fixed height of the footer here */
   height: 30px !important;
   background-colour: white !important;
+}
+
+/* Random customations for all kinds of elements */
+
+.profile-posts:hover{
+    color: #707070;
+}
+
+.custom-jumbotron-diagonal {
+    font-family: Georgia, serif;
+    background: #eeeeee;
+    background: -webkit-linear-gradient(left top, #a2a2a2, #d5d5d5); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #a2a2a2, #d5d5d5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #a2a2a2, #d5d5d5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #a2a2a2, #d5d5d5); /* Standard syntax */
+    width: 100%;
+    left: 0;
+    padding: 5em;
+    position: relative;
+    bottom: 20px;
+}
+.custom-jumbotron-diagonal h1 {
+    text-align: center;
+    font-size: 300%;
+}
+.custom-jumbotron-diagonal p {
+    text-align: center;
+    font-size: 150%;
+}
+
+
+.custom-jumbotron-radial {
+    font-family: Georgia, serif;
+    background: #eeeeee;
+    background: -webkit-radial-gradient(#eeeeee, #a2a2a2, #525252); /* For Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(#eeeeee, #a2a2a2, #525252); /* For Opera 11.1 to 12.0 */
+    background: -moz-radial-gradient(#eeeeee, #a2a2a2, #525252); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(#eeeeee, #a2a2a2, #525252); /* Standard syntax */
+    width: 100%;
+    left: 0;
+    padding: 5em;
+    position: relative;
+    bottom: 20px;
+}
+.custom-jumbotron-radial h1 {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    font-size: 300%;
+}
+.custom-jumbotron-radial p {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    font-size: 150%;
+}
+
+.custom-jumbotron-radial button {
+    margin: 0 auto;
+    display: block;
+}
+
+.custom-jumbotron-linear {
+    font-family: Georgia, serif;
+    background: #eeeeee;
+    background: -webkit-linear-gradient(#525252, #f7f7f5); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#525252, #f7f7f5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#525252, #f7f7f5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#525252, #f7f7f5); /* Standard syntax */
+    width: 100%;
+    left: 0;
+    padding: 5em;
+    position: relative;
+    bottom: 23px;
+}
+.custom-jumbotron-linear h1 {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    font-size: 300%;
+}
+.custom-jumbotron-linear p {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    font-size: 150%;
+}
+
+.custom-jumbotron-linear button {
+    margin: 0 auto;
+    display: block;
+}
+
+.pulled-left {
+    left: 0;
+    width: 100%;
+}
+.pulled-left h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.centered-text {
+    text-align: center !important;
+}
+
+.resize {
+    width: 150px;
+    height: auto;
+}
+
+.part-nick {
+    text-align: left;
+    display: table-cell;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.blog-title h1 {
+    text-align: center;
+}
+
+.markdown-buttons {
+    margin: auto 0;
+}
+
+.well-gradient-gray {
+    background: #a2a2a2;
+    background: -webkit-linear-gradient(#f7f7f5, #a2a2a2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f7f7f5, #a2a2a2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f7f7f5, #a2a2a2); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f7f7f5, #a2a2a2); /* Standard syntax */
+    padding: 1em;
+    border-radius: 5px;
+}
+
+/* Special styles for login and register form */
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading {
+  margin-bottom: 10px;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+/* */
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin #last-password {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* customized Bootstrap navbar */
+
+.navbar-default {
+  background-color: #525252;
+  border-color: #636363;
+}
+.navbar-default .navbar-brand {
+  color: #eaeaea;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #eaeaea;
+}
+.navbar-default .navbar-text {
+  color: #eaeaea;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #eaeaea;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #eaeaea;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #eaeaea;
+  background-color: #636363;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #eaeaea;
+  background-color: #636363;
+}
+.navbar-default .navbar-toggle {
+  border-color: #636363;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #636363;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #eaeaea;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #eaeaea;
+}
+.navbar-default .navbar-link {
+  color: #eaeaea;
+}
+.navbar-default .navbar-link:hover {
+  color: #eaeaea;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #eaeaea;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #eaeaea;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #eaeaea;
+    background-color: #636363;
+  }
+}
+
+/* customized Bootstrap navbar-justified */
+.nav-justified {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 2em;
+}
+.nav-justified > li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  color: #f7f7f5;
+  text-align: center;
+  background-color: #525252; /* Old browsers */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#525252));
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #525252 100%);
+  background-image:      -o-linear-gradient(top, #f5f5f5 0%, #525252 100%);
+  background-image:         linear-gradient(to bottom, #a2a2a2 0%,#525252 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#525252',GradientType=0 ); /* IE6-9 */
+  background-repeat: repeat-x; /* Repeat the gradient */
+  border-bottom: 1px solid #d5d5d5;
+}
+.nav-justified > li > a > s {
+    color: #f7f7f5;
+}
+.nav-justified > .active > a,
+.nav-justified > .active > a:hover,
+.nav-justified > .active > a:focus {
+  background-color: #ddd;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+          box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+}
+.nav-justified > li:first-child > a {
+  border-radius: 5px 5px 0 0;
+}
+.nav-justified > li:last-child > a {
+  border-bottom: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+@media (min-width: 768px) {
+  .nav-justified {
+    max-height: 52px;
+  }
+  .nav-justified > li > a {
+    border-right: 1px solid #d5d5d5;
+    border-left: 1px solid #fff;
+  }
+  .nav-justified > li:first-child > a {
+    border-left: 0;
+    border-radius: 5px 0 0 5px;
+  }
+  .nav-justified > li:last-child > a {
+    border-right: 0;
+    border-radius: 0 5px 5px 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .masthead,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/* customized Bootstrap classes */
+
+.media {
+    margin: 1em;
+}
+
+.media h4 {
+    color: #525252;
+}
+
+.media p {
+    color: #525252;
 }

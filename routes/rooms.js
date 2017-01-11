@@ -65,7 +65,7 @@ module.exports = function (io) {
                 });
             });
         });
-        
+
         // SOMEONE ADDED NEW ROOM
         socket.on('new:room', function(req) {
             io.emit('refresh:rooms');
@@ -74,7 +74,6 @@ module.exports = function (io) {
         //LEAVING ROOM
         socket.on('room:leave', function (req) {
             socket.leave(req.RoomId);
-            console.log('User left');
             io.to(req.RoomId).emit('user:left', {nickname: req.nickname, id: req.id});
         });
     });

@@ -25,8 +25,10 @@ blog service as well.
 ### Frontend:
 * AngularJS
 * jQuery
-* Bootstrap
+* Bootstrap 3 (about to migrate to 4 in future)
 * Facebook SDK for JavaScript
+* Trumbowyg
+* Less
 
 ## To get this project run locally
 
@@ -73,6 +75,8 @@ Contains express routes:
 * rooms.js
 
 *Contains API-calls for room management - such as creating and getting rooms. Also Socket.io backend is stored there.*
+* posts.js
+*Contains API-calls for blog post management - such as creating, getting and deleting posts.*
 
 #### /utils
 * authentication.js
@@ -133,10 +137,20 @@ Contains front-end frameworks and tools such as AngularJS and jQuery files.
 possibility for adding profilephoto in chat's participants -view.*
 * mainController.js
 
-*Provides model for viewing simple userdata, such as full name, nickname and profilephoto for Facebook users.*
+*Controls main view, i.e. requests recent blogposts*
 * userController.js
 
 *Provides model for creating new user via email and Facebook, and logging user in both ways.*
+* profileController.js
+
+*For user data management - change nickname and password, view FB-profilephoto, list own blogposts*
+* blogController.js
+
+*Provides feature to view (and delete own) blogposts and also lists most recent posts and user's posts in Blog/Main -view*
+
+* markdownController.js
+
+*Provides tools for creating blogpost: user can write post with Trumbowyg-markdown editor and view it before posting*
 
 ##### /public/app/services
 * APIService.js
@@ -150,7 +164,15 @@ possibility for adding profilephoto in chat's participants -view.*
 
 * styles.css
 
-*Added few lines of customized style for couple elements.*
+*Customized styles for Bootstrap elements and some own classes*
+
+* lessStyles.css
+
+*Generated classes with Less*
+
+* style.lessStyles
+
+*Generation for Less -compiler*
 
 ##### /public/app/views
 * about.html
@@ -167,10 +189,22 @@ possibility for adding profilephoto in chat's participants -view.*
 *Contains view for register form.*
 * main.html
 
-*Contains currently view for single jumbotron - might grow up pretty much in the future.*
+*Contains currently greeting for user and lists recent blog posts*
 * profile.html
 
-*Displays user's info*
+*Displays user's info, allows to change some of it*
+
+* blogpost.html
+
+*Shows posts*
+
+* createpost.html
+
+*Contains markdown editor*
+
+* mainblogs.html
+
+*List most recent posts and user's own posts*
 
 ##### app.js
 Contains configuration for app - such as config -module for single-page routing and run -module.
@@ -193,3 +227,7 @@ This flaw will be taken care of as soon as I can.
 Currently backend doesn't provide an opportunity for frontend to post any kind of change to the user's data.
 
 IMPROVED: Users can now change password and nickname.
+
+### No opportunity to search blogposts or view some older posts
+
+This feature will be coming probably in the next major update.

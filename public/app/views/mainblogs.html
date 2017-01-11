@@ -1,0 +1,51 @@
+<div class="container">
+    <ul class="nav nav-justified">
+        <li><a href="#/blog/main">Main</a></li>
+        <li><a href="#/create_post">Create post</a></li>
+        <li role="presentation"><a ng-disabled="true"><s>Search posts</s> (coming)</a></li>
+    </ul>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <h1>Latest blog posts...</h1>
+            <div ng-repeat="post in recentPosts | orderBy: '-createdAt'">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#/blog/{{post.UserId}}/{{post.id}}">
+                            <img class="media-object resize img-thumbnail" ng-src="{{post.comImg}}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h3>{{post.title}}</h3>
+                        <p>
+                            Posted {{post.createdAt | date:"d.M.y HH:mm"}}
+                        </p>
+                        <p>
+                            By <strong>{{post.User.firstName}}</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <h1>Your posts</h1>
+            <div ng-repeat="post in usersPosts | orderBy: '-createdAt'">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#/blog/{{post.UserId}}/{{post.id}}">
+                            <img class="media-object resize img-thumbnail" ng-src="{{post.comImg}}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h3>{{post.title}}</h3>
+                        <p>
+                            Posted {{post.createdAt | date:"d.M.y HH:mm"}}
+                        </p>
+                        <p>
+                            By <strong>{{post.User.firstName}}</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

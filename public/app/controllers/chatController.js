@@ -21,10 +21,14 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
     //FUNCTION FOR CREATING ELEMENT WITH USER'S NICKNAME AND FACEBOOK PROFILE PHOTO
     //CALLS addElement(elem) WITH CREATED ELEMENT ON PARAMETER
     function addParticipantWithPhoto(data) {
-        var result = $.grep($scope.elementsPrinted, function (e) {
-            return e.id === data.id;
-        });
-        if (result.length === 0) {
+        var result = 0;
+        for (var i = 0; i < $scope.elementsPrinted.length; i++) {
+            if ($scope.elementsPrinted[i].id === data.id) {
+                result++;
+            }
+        }
+        console.log("Result: " + result);
+        if (result === 0) {
             $scope.elementsPrinted.push({id: data.id});
             var url = '/' + data.fbId;
             FB.api(url, {
@@ -33,11 +37,13 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
                 if (!response || response.error) {
                     console.log(response.error);
                 } else {
-                    var dom_div = document.createElement("div");
-                    dom_div.className = "row";
-                    dom_div.id = data.id;
+                    var dom_div1 = document.createElement("div");
+                    var dom_div2 = document.createElement("div");
+                    dom_div1.className = "participant-gray-lighter";
+                    dom_div2.className = "row";
+                    dom_div1.id = data.id;
                     var dom_p = document.createElement("p");
-                    dom_p.className = "text-primary col-xs-9 col-sm-9 col-md-9";
+                    dom_p.className = "text-primary col-xs-8 col-sm-8 col-md-8 part-nick";
                     var strong = document.createElement("strong");
                     var node = document.createTextNode(data.nickname);
                     strong.appendChild(node);
@@ -46,11 +52,12 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
                     dom_img.src = response.picture.data.url;
                     dom_img.className = "img-circle";
                     var dom_imgdiv = document.createElement("div");
-                    dom_imgdiv.className = "col-xs-3 col-sm-3 col-md-3";
+                    dom_imgdiv.className = "col-xs-4 col-sm-4 col-md-4";
                     dom_imgdiv.appendChild(dom_img);
-                    dom_div.appendChild(dom_imgdiv);
-                    dom_div.appendChild(dom_p);
-                    addElement(dom_div);
+                    dom_div2.appendChild(dom_imgdiv);
+                    dom_div2.appendChild(dom_p);
+                    dom_div1.appendChild(dom_div2);
+                    addElement(dom_div1);
                 }
             });
         }
@@ -59,26 +66,33 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
     //CREATES ELEMENT WITH USER'S NICKNAME AND CALLS
     //FUNCTION addElement(elem) WITH CREATED ELEMENT ON PARMAETER
     function addParticipant(data) {
-        var result = $.grep($scope.elementsPrinted, function (e) {
-            return e.id === data.id;
-        });
-        if (result.length === 0) {
+        var result = 0;
+        for (var i = 0; i < $scope.elementsPrinted.length; i++) {
+            if ($scope.elementsPrinted[i].id === data.id) {
+                result++;
+            }
+        }
+        console.log("Result: " + result);
+        if (result === 0) {
             $scope.elementsPrinted.push({id: data.id});
-            var dom_div = document.createElement("div");
-            dom_div.className = "row";
-            dom_div.id = data.id;
+            var dom_div1 = document.createElement("div");
+            var dom_div2 = document.createElement("div");
+            dom_div1.className = "participant-gray-lighter";
+            dom_div2.className = "row";
+            dom_div1.id = data.id;
             var dom_imgdiv = document.createElement("div");
-            dom_imgdiv.className = "col-xs-3 col-sm-3 col-md-3";
+            dom_imgdiv.className = "col-xs-4 col-sm-4 col-md-4";
             dom_imgdiv.id = "stuff-element";
             var dom_p = document.createElement("p");
-            dom_p.className = "text-primary col-xs-9 col-sm-9 col-md-9";
+            dom_p.className = "text-primary col-xs-8 col-sm-8 col-md-8 part-nick";
             var strong = document.createElement("strong");
             var node = document.createTextNode(data.nickname);
             strong.appendChild(node);
             dom_p.appendChild(strong);
-            dom_div.appendChild(dom_imgdiv);
-            dom_div.appendChild(dom_p);
-            addElement(dom_div);
+            dom_div2.appendChild(dom_imgdiv);
+            dom_div2.appendChild(dom_p);
+            dom_div1.appendChild(dom_div2);
+            addElement(dom_div1);
         }
     }
 
@@ -218,7 +232,7 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
                 Socket.emit('new:room');
                 $scope.room = room;
                 $scope.inRoom = true;
-                $scope.users;
+                $scope.users = [];
                 $scope.errorMessage = null;
                 $rootScope.profile.RoomId = room.id;
             });

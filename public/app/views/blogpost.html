@@ -1,0 +1,75 @@
+<div id="blog-container" class="container">
+    <ul class="nav nav-justified">
+        <li><a href="#/blog/main">Main</a></li>
+        <li><a href="#/create_post">Create post</a></li>
+        <li role="presentation" class="disabled"><a><s>Search posts</s> (coming)</a></li>
+    </ul>
+    <div id="title-row" class="row">
+        <div class="col-sm-1 col-md-1 col-xs-0"></div>
+        <div class="col-sm-8 col-md-8 col-xs-12 blog-title">
+            <h1>{{post.title}}</h1>
+        </div>
+        <div class="col-sm-3 col-md-3 col-xs-0"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-xs-0"></div>
+        <div id="content-container" class="col-sm-8 col-md-8 col-xs-12">
+        </div>
+        <div class="col-sm-0 col-md-0 col-xs-2"></div>
+        <div id="post-info" class="col-sm-3 col-md-3 col-xs-8">
+            <p class="lead">
+                Posted: <br />
+                {{post.createdAt | date: "d.M.y HH:mm"}}<br />
+                By {{post.User.firstName}} {{post.User.lastName}}
+            </p>
+            <button class="btn btn-sm btn-danger" ng-if="postOwner" ng-click="deletePost()">Delete post</button>
+            <div class="alert alert-danger" role="alert" ng-if="deleteError">
+                {{deleteError}}
+            </div>
+        </div>
+        <div class="col-sm-0 col-md-0 col-xs-2"></div>
+    </div>
+    <div class="row well-gradient-gray">
+        <div class="col-sm-1 col-md-1 col-xs-0"></div>
+        <div class="col-sm-8 col-md-8 col-xs-12">
+            <h2>
+                <ng-pluralize count="countReplies"
+                      when="{'0': 'No comments yet',
+                      'one': '{} comment',
+                      'other': '{} comments' }">
+
+                 </ng-pluralize>
+            </h2>
+
+            <div ng-repeat="reply in post.Replies">
+                <ul class="media-list">
+                    <li class="media">
+                        <div class="media-body">
+                            <h4 class="media-heading">{{reply.User.firstName}} {{reply.User.lastName}}</h4>
+
+                            <p>
+                                {{reply.content}}
+                            </p>
+
+                            <p class="text-muted">
+                                {{ reply.createdAt | date: "d.M.y HH:mm" }}
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="alert alert-danger" role="alert" ng-if="errorMessage">
+                {{errorMessage}}
+            </div>
+            <div class="input-group">
+                <label class="sr-only" for="input-reply">Reply content</label>
+                <input type="text" id="input-reply" ng-model="newReply.content" class="form-control" placeholder="Comment this post..."/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="sendReply()">Send</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-xs-0">
+        </div>
+    </div>
+</div>

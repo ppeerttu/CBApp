@@ -20,17 +20,37 @@ var Room = Database.sequelize.define('Room', {
     name: Database.DataTypes.STRING
 });
 
+var Post = Database.sequelize.define('Post', {
+    id: { type: Database.DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    title: Database.DataTypes.STRING,
+    comImg: Database.DataTypes.STRING,
+    content: Database.DataTypes.TEXT
+});
+
+var Reply = Database.sequelize.define('Reply', {
+    id: { type: Database.DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    content: Database.DataTypes.TEXT
+})
+
 Message.belongsTo(User);
 Message.belongsTo(Room);
 
+User.hasMany(Post);
+User.hasMany(Reply);
 User.hasMany(Message);
+
+Post.hasMany(Reply);
+Post.belongsTo(User);
+
+Reply.belongsTo(User);
+Reply.belongsTo(Post);
+
 Room.hasMany(Message);
 
 module.exports = {
   Message: Message,
   User: User,
-  Room: Room
+  Room: Room,
+  Post: Post,
+  Reply: Reply
 };
-
-
-

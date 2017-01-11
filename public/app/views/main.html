@@ -1,10 +1,37 @@
-<div id="main-container" class="container" onload="checkLogin()">
-    
 
-    <div class="jumbotron">
-        <h1>Welcome, {{currentUser.firstName}}</h1>
-        <p>There is people having conversations in the chat rooms. Would you like to join?</p>
-        <p><a class='btn btn-primary btn-lg' href='#/chat' role='button'>Sure!</a></p>
-    </div>
 
+
+<div class="custom-jumbotron-linear">
+    <h1>Welcome, {{profile.firstName}}</h1>
+    <p>There is people having conversations in the chat rooms. Would you like to join?</p>
+    <button class='btn btn-default btn-lg' type="button" ng-click="locateToChat()">Sure!</button>
+</div>
+<div class="pulled-left">
+    <h1>Latest blog posts...</h1>
+</div>
+<div class="container">
+        <div ng-repeat="post in posts | orderBy: '-createdAt'">
+            <div class="row">
+                <div class="col-xs-0 col-sm-2 col-md-2"></div>
+                    <div class="col-xs-12 col-sm-8 col-md-8">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <a href="#/blog/{{post.UserId}}/{{post.id}}">
+                                    <img class="media-object resize img-thumbnail" ng-src="{{post.comImg}}">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h3>{{post.title}}</h3>
+                                <p>
+                                    Posted {{post.createdAt | date:"d.M.y HH:mm"}}
+                                </p>
+                                <p>
+                                    By <strong>{{post.User.firstName}}</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-xs-0 col-sm-2 col-md-2"></div>
+            </div>
+        </div>
 </div>

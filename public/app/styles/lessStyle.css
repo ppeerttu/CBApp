@@ -1,0 +1,484 @@
+.participant-gray-darker {
+  background: #494949;
+  background: -webkit-radial-gradient(#6f6f6f, #494949, #222222);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#6f6f6f, #494949, #222222);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#6f6f6f, #494949, #222222);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#6f6f6f, #494949, #222222);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-gray-dark {
+  background: #595959;
+  background: -webkit-radial-gradient(#808080, #595959, #333333);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#808080, #595959, #333333);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#808080, #595959, #333333);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#808080, #595959, #333333);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-gray {
+  background: #7c7c7c;
+  background: -webkit-radial-gradient(#a2a2a2, #7c7c7c, #555555);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#a2a2a2, #7c7c7c, #555555);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#a2a2a2, #7c7c7c, #555555);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#a2a2a2, #7c7c7c, #555555);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-gray-light {
+  background: #9d9d9d;
+  background: -webkit-radial-gradient(#c4c4c4, #9d9d9d, #777777);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#c4c4c4, #9d9d9d, #777777);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#c4c4c4, #9d9d9d, #777777);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#c4c4c4, #9d9d9d, #777777);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-gray-lighter {
+  background: #c8c8c8;
+  background: -webkit-radial-gradient(#eeeeee, #c8c8c8, #a2a2a2);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#eeeeee, #c8c8c8, #a2a2a2);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#eeeeee, #c8c8c8, #a2a2a2);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#eeeeee, #c8c8c8, #a2a2a2);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-gray-lightest {
+  background: #ffffff;
+  background: -webkit-radial-gradient(#ffffff, #ffffff, #eeeeee);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#ffffff, #ffffff, #eeeeee);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#ffffff, #ffffff, #eeeeee);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#ffffff, #ffffff, #eeeeee);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-brand-primary {
+  background: #64a0d3;
+  background: -webkit-radial-gradient(#a0c4e4, #64a0d3, #337ab7);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#a0c4e4, #64a0d3, #337ab7);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#a0c4e4, #64a0d3, #337ab7);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#a0c4e4, #64a0d3, #337ab7);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-brand-success {
+  background: #91cf91;
+  background: -webkit-radial-gradient(#c7e6c7, #91cf91, #5cb85c);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#c7e6c7, #91cf91, #5cb85c);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#c7e6c7, #91cf91, #5cb85c);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#c7e6c7, #91cf91, #5cb85c);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-brand-info {
+  background: #9bd8eb;
+  background: -webkit-radial-gradient(#daf1f8, #9bd8eb, #5bc0de);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#daf1f8, #9bd8eb, #5bc0de);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#daf1f8, #9bd8eb, #5bc0de);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#daf1f8, #9bd8eb, #5bc0de);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-brand-danger {
+  background: #e7908e;
+  background: -webkit-radial-gradient(#f4cecd, #e7908e, #d9534f);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#f4cecd, #e7908e, #d9534f);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#f4cecd, #e7908e, #d9534f);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#f4cecd, #e7908e, #d9534f);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.participant-brand-warning {
+  background: #f6ce95;
+  background: -webkit-radial-gradient(#fceedb, #f6ce95, #f0ad4e);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#fceedb, #f6ce95, #f0ad4e);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(#fceedb, #f6ce95, #f0ad4e);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#fceedb, #f6ce95, #f0ad4e);
+  /* Standard syntax */
+  border-radius: 30px;
+  margin: 10px 6px;
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+}
+.color-gray-darker {
+  background-color: #222222;
+}
+.color-gray-dark {
+  background-color: #333333;
+}
+.color-gray {
+  background-color: #555555;
+}
+.color-gray-light {
+  background-color: #777777;
+}
+.color-gray-lighter {
+  background-color: #a2a2a2;
+}
+.color-gray-lightest {
+  background-color: #eeeeee;
+}
+.color-brand-primary {
+  background-color: #337ab7;
+}
+.color-brand-success {
+  background-color: #5cb85c;
+}
+.color-brand-info {
+  background-color: #5bc0de;
+}
+.color-brand-danger {
+  background-color: #d9534f;
+}
+.color-brand-warning {
+  background-color: #f0ad4e;
+}
+.commercial-gray-darker {
+  background: #222222;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #222222, #555555);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #222222, #555555);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #222222, #555555);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #222222, #555555);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-gray-darker h2 {
+  text-align: center;
+}
+.commercial-gray-darker h2 a {
+  color: inherit;
+}
+.commercial-gray-darker p {
+  text-align: center;
+}
+.commercial-gray-dark {
+  background: #333333;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #333333, #666666);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #333333, #666666);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #333333, #666666);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #333333, #666666);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-gray-dark h2 {
+  text-align: center;
+}
+.commercial-gray-dark h2 a {
+  color: inherit;
+}
+.commercial-gray-dark p {
+  text-align: center;
+}
+.commercial-gray {
+  background: #555555;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #555555, #888888);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #555555, #888888);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #555555, #888888);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #555555, #888888);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-gray h2 {
+  text-align: center;
+}
+.commercial-gray h2 a {
+  color: inherit;
+}
+.commercial-gray p {
+  text-align: center;
+}
+.commercial-gray-light {
+  background: #777777;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #777777, #aaaaaa);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #777777, #aaaaaa);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #777777, #aaaaaa);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #777777, #aaaaaa);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-gray-light h2 {
+  text-align: center;
+}
+.commercial-gray-light h2 a {
+  color: inherit;
+}
+.commercial-gray-light p {
+  text-align: center;
+}
+.commercial-gray-lighter {
+  background: #a2a2a2;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #a2a2a2, #d5d5d5);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #a2a2a2, #d5d5d5);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #a2a2a2, #d5d5d5);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #a2a2a2, #d5d5d5);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-gray-lighter h2 {
+  text-align: center;
+}
+.commercial-gray-lighter h2 a {
+  color: inherit;
+}
+.commercial-gray-lighter p {
+  text-align: center;
+}
+.commercial-gray-lightest {
+  background: #eeeeee;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #eeeeee, #ffffff);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #eeeeee, #ffffff);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #eeeeee, #ffffff);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #eeeeee, #ffffff);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-gray-lightest h2 {
+  text-align: center;
+}
+.commercial-gray-lightest h2 a {
+  color: inherit;
+}
+.commercial-gray-lightest p {
+  text-align: center;
+}
+.commercial-brand-primary {
+  background: #337ab7;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #337ab7, #78acd9);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #337ab7, #78acd9);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #337ab7, #78acd9);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #337ab7, #78acd9);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-brand-primary h2 {
+  text-align: center;
+}
+.commercial-brand-primary h2 a {
+  color: inherit;
+}
+.commercial-brand-primary p {
+  text-align: center;
+}
+.commercial-brand-success {
+  background: #5cb85c;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #5cb85c, #a3d7a3);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #5cb85c, #a3d7a3);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #5cb85c, #a3d7a3);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #5cb85c, #a3d7a3);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-brand-success h2 {
+  text-align: center;
+}
+.commercial-brand-success h2 a {
+  color: inherit;
+}
+.commercial-brand-success p {
+  text-align: center;
+}
+.commercial-brand-info {
+  background: #5bc0de;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #5bc0de, #b0e1ef);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #5bc0de, #b0e1ef);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #5bc0de, #b0e1ef);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #5bc0de, #b0e1ef);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-brand-info h2 {
+  text-align: center;
+}
+.commercial-brand-info h2 a {
+  color: inherit;
+}
+.commercial-brand-info p {
+  text-align: center;
+}
+.commercial-brand-danger {
+  background: #d9534f;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #d9534f, #eba5a3);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #d9534f, #eba5a3);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #d9534f, #eba5a3);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #d9534f, #eba5a3);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-brand-danger h2 {
+  text-align: center;
+}
+.commercial-brand-danger h2 a {
+  color: inherit;
+}
+.commercial-brand-danger p {
+  text-align: center;
+}
+.commercial-brand-warning {
+  background: #f0ad4e;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #f0ad4e, #f8d9ac);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #f0ad4e, #f8d9ac);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #f0ad4e, #f8d9ac);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #f0ad4e, #f8d9ac);
+  /* Standard syntax */
+  width: 100%;
+  left: 0;
+  padding: 1em;
+  margin: 5em 0 auto 0;
+}
+.commercial-brand-warning h2 {
+  text-align: center;
+}
+.commercial-brand-warning h2 a {
+  color: inherit;
+}
+.commercial-brand-warning p {
+  text-align: center;
+}

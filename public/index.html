@@ -7,15 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="shortcut icon" type="image/ico" href="favicon.ico?v=2"/>
-        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- styles -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="app/styles/style.css" type="text/css">
-
-        <!-- jQuery & bootstrap scripts -->
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="app/styles/css.min.css" type="text/css">
+        <link rel="stylesheet" href="bower_components/trumbowyg/dist/ui/trumbowyg.min.css" type="text/css">
 
         <!-- angular-scripts -->
         <script src="bower_components/angular/angular.min.js"></script>
@@ -54,12 +50,18 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
+
+        <!-- jQuery & bootstrap scripts -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/trumbowyg/dist/trumbowyg.min.js"></script>
+
     </head>
     <body>
-        <nav  id="navigation-container" class="container navbar navbar-inverse" ng-if="userLoggedIn">
+        <nav  id="navigation-container" class="container-fluid navbar navbar-default" ng-if="userLoggedIn">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -67,10 +69,10 @@
                     </button>
                     <a class="navbar-brand" href="#/main">CBApp</a>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="#/chat">Chat</a></li>
-                        <li class="disabled"><a>Blog</a></li>
+                        <li><a href="#/blog/main">Blog</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#/about">About</a></li>

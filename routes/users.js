@@ -14,7 +14,7 @@ function checkPassword(pass) {
     return regEx.test(pass);
 }
 
-/* for developing purposes
+/* for developing purposes*/
 router.get('/all', function (req, res, next) {
     Models.User.findAll().then(function(users) {
         res.json(users);
@@ -22,7 +22,7 @@ router.get('/all', function (req, res, next) {
         res.send(400).json(error);
     })
 })
-*/
+
 
 // authenticating with facebook
 // This route makes sure that if the user authenticating via facebook has already registered
@@ -89,9 +89,6 @@ router.post('/', function (req, res, next) {
         res.status(400).json({error: 'Userinfo not valid!'});
         return;
     }
-
-    console.log('Attempting to register user with nickname: ' + userToAdd.nickname);
-
     Models.User.findOne({
         where: {
             $or: [
@@ -100,7 +97,6 @@ router.post('/', function (req, res, next) {
             ]
         }
     }).then(function (user) {
-        console.log('Found: ' + user);
         if (user) {
             res.status(400).json({error: 'Nickname or email already in use!'});
         } else {

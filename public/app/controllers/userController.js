@@ -5,11 +5,6 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
         $location.path('/main');
     }
 
-    //REDIRECT FUNCTION FOR REGISTER-TEMPLATE'S BACK -BUTTON
-    $scope.redirect = function () {
-        $location.path('/login');
-    };
-
     //LOGIN-FUNCTION FOR FACEBOOK AUTHENTICATION
     $scope.onFBlogin = function () {
         FB.login(function (response) {
@@ -49,7 +44,9 @@ CBApp.controller('UserController',['$rootScope', '$scope', 'APIService', '$locat
                     $location.path('/login');
                 }).error(function (error) {
                     $scope.regError = error.error;
-                    $scope.newUser.lastName = '';
+                    if ($scope.newUser.lastName = 'not_set') {
+                        $scope.newUser.lastName = '';
+                    }
                 });
             }
         }

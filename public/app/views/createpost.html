@@ -1,0 +1,46 @@
+<div class="container">
+    <ul class="nav nav-justified">
+        <li><a href="#/blog/main">Main</a></li>
+        <li><a href="#/create_post">Create post</a></li>
+        <li role="presentation" ng-disabled="true"><a><s>Search posts</s> (coming)</a></li>
+    </ul>
+    <div id="preview-container" style="display: none;">
+        <div id="commercial-preview">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <img class="media-object resize img-thumbnail" ng-src={{sendObj.comImg}}>
+                </div>
+                <div class="media-body">
+                    <h3>{{sendObj.title}}</h3>
+                    <p>
+                        Posted {{currentDate | date:"d.M.y HH:mm"}}
+                    </p>
+                    <p>
+                        By <strong>{{currentUser.firstName}}</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h1>{{sendObj.title}}</h1>
+        <div id="preview-markdown"></div>
+    </div>
+
+    <div id="markdown-container">
+        <div ng-if="errorMessage" class="alert alert-danger" role="alert">
+            {{errorMessage}}
+        </div>
+        <input type="text" class="form-control" placeholder="Set title here" ng-model="sendObj.title">
+        <input type="text" class="form-control" placeholder="Set address for commercial image here" ng-model="sendObj.comImg">
+        <div id="markdown-trumb" placeholder="Type your post here">
+        </div>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-lg btn-success btn-block markdown-button" ng-click="showResult()">Show result</button>
+            </span>
+            <span class="input-group-btn">
+                <button class="btn btn-lg btn-warning btn-block markdown-button" ng-click="hideResult()">Hide result</button>
+            </span>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="sendPost()">Publish post</button>
+    </div>
+</div>

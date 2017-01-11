@@ -1,0 +1,91 @@
+
+@gray-darker:  lighten(#000, 13.5%);
+@gray-dark:    lighten(#000, 20%);
+@gray:         lighten(#000, 33.5%);
+@gray-light:   lighten(#000, 46.7%);
+@gray-lighter: lighten(#000, 63.4%);
+@gray-lightest: lighten(#000, 93.5%);
+
+@brand-primary: darken(#428bca, 6.5%);
+@brand-success: #5cb85c;
+@brand-info:    #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger:  #d9534f;
+
+.gradient-vertical(@start, @end) {
+    background: -webkit-linear-gradient(@start, @end); /* for Safari */
+    background: -o-linear-gradient(@start, @end); /* for Opera */
+    background: -moz-linear-gradient(@start, @end); /* for Firefox */
+    background: linear-gradient(@start, @end); /* for standard */
+}
+
+.gradient-diagonal(@start, @end) {
+    background: @start; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, @start, @end); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, @start, @end); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, @start, @end); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, @start, @end); /* Standard syntax */
+}
+
+.gradient-radial (@border, @middle, @center){
+    background: @middle;
+    background: -webkit-radial-gradient(@center, @middle, @border); /* For Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(@center, @middle, @border); /* For Opera 11.1 to 12.0 */
+    background: -moz-radial-gradient(@center, @middle, @border); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(@center, @middle, @border); /* Standard syntax */
+}
+
+
+
+.blog-colours(@counter: 1) when (@counter =< length(@names)) {
+    @i: extract(@names, @counter);
+    @col: extract(@colours, @counter);
+    .commercial-@{i} {
+        .gradient-diagonal(@col, lighten(@col, 20%));
+        width: 100%;
+        left: 0;
+        padding: 1em;
+        margin: 5em 0 auto 0;
+    }
+    .commercial-@{i} h2 {
+        text-align: center;
+    }
+    .commercial-@{i} h2 a {
+        color: inherit;
+    }
+    .commercial-@{i} p {
+        text-align: center;
+    }
+    .blog-colours(@counter + 1);
+}
+
+.participant-colours(@counter: 1) when (@counter =< length(@names)) {
+    @i: extract(@names, @counter);
+    @col: extract(@colours, @counter);
+    .participant-@{i} {
+        .gradient-radial(@col, lighten(@col, 15%), lighten(@col, 30%));
+        border-radius: 30px;
+        margin: 10px 6px;
+        -moz-box-shadow: 0 0 6px #000000;
+        -webkit-box-shadow: 0 0 6px #000000;
+        box-shadow: 0 0 6px #000000;
+    }
+    .participant-colours(@counter + 1);
+}
+
+@colours: @gray-darker, @gray-dark, @gray, @gray-light, @gray-lighter, @gray-lightest, @brand-primary, @brand-success, @brand-info, @brand-danger, @brand-warning;
+@names: gray-darker gray-dark gray gray-light gray-lighter gray-lightest brand-primary brand-success brand-info brand-danger brand-warning;
+
+
+.background-colours(@counter: 1) when (@counter =< length(@names)) {
+    @i: extract(@names, @counter);
+    @col: extract(@colours, @counter);
+    .color-@{i} {
+        background-color: @col;
+    }
+    .background-colours(@counter + 1);
+}
+
+.participant-colours;
+.background-colours;
+.blog-colours;

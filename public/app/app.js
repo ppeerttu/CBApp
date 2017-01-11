@@ -38,7 +38,7 @@ CBApp.config(['$routeProvider', function ($routeProvider) {
                 }
             })
             .when('/profile', {
-                controller: 'MainController',
+                controller: 'ProfileController',
                 templateUrl: 'app/views/profile.html',
                 resolve: {
                     userLoggedIn: ['$rootScope', 'APIService', function ($rootScope, APIService) {
@@ -59,6 +59,39 @@ CBApp.config(['$routeProvider', function ($routeProvider) {
                     }]
                 }
             })
+            .when('/create_post', {
+                controller: 'MarkdownController',
+                templateUrl: 'app/views/createpost.html',
+                resolve: {
+                    userLoggedIn: ['$rootScope', 'APIService', function ($rootScope, APIService) {
+                        return APIService.getUserLoggedIn().success(function (user) {
+                            $rootScope.userLoggedIn = user.nickname ? user : null;
+                        });
+                    }]
+                }
+            })
+            .when('/blog/main', {
+                controller: 'BlogController',
+                templateUrl: 'app/views/mainblogs.html',
+                resolve: {
+                    userLoggedIn: ['$rootScope', 'APIService', function ($rootScope, APIService) {
+                        return APIService.getUserLoggedIn().success(function (user) {
+                            $rootScope.userLoggedIn = user.nickname ? user : null;
+                        });
+                    }]
+                }
+            })
+            .when('/blog/:UserId/:id', {
+                controller: 'BlogController',
+                templateUrl: 'app/views/blogpost.html',
+                resolve: {
+                    userLoggedIn: ['$rootScope', 'APIService', function ($rootScope, APIService) {
+                        return APIService.getUserLoggedIn().success(function (user) {
+                            $rootScope.userLoggedIn = user.nickname ? user : null;
+                        });
+                    }]
+                }
+            })
             .when('/about', {
                 templateUrl: 'app/views/about.html'
             })
@@ -68,14 +101,14 @@ CBApp.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 CBApp.run(['$rootScope', '$location', 'APIService', '$cookies', function ($rootScope, $location, APIService, $cookies) {
-    
+
     // Getting user info from cookies in case user has refreshed page
     var cookies = $cookies.get('profile');
     if (typeof cookies !== 'undefined' && cookies !== null) {
         var parsedCookies = JSON.parse(cookies);
         $rootScope.profile = parsedCookies;
     }
-    
+
     // Providing logout -method for root element
     $rootScope.logOut = function () {
         APIService.logout().success(function () {
@@ -87,4 +120,3 @@ CBApp.run(['$rootScope', '$location', 'APIService', '$cookies', function ($rootS
         $cookies.remove('profile');
     };
 }]);
-

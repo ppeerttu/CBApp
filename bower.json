@@ -1,6 +1,6 @@
 {
   "name": "CBApp",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "main": "path/to/main.css",
   "ignore": [
     ".jshintrc",
@@ -10,7 +10,8 @@
     "angular-route": "1.4",
     "angular-cookies": "1.4",
     "bootstrap": "~3.3.4",
-    "angular": "1.4"
+    "angular": "1.4",
+    "trumbowyg":"2.4.2"
   },
   "devDependencies": {}
 }

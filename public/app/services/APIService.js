@@ -9,7 +9,6 @@ CBApp.service('APIService',['$http', function($http) {
 
     this.getRoom = function (id) {
         var url = '/rooms/' + id;
-        console.log('Request url: ' + url);
         return $http.get(url);
     }
 
@@ -44,6 +43,42 @@ CBApp.service('APIService',['$http', function($http) {
 
     this.loginFB = function(user) {
         return $http.post('/users/fb_authenticate', user);
+    }
+
+    // ==================================
+    // FOR BLOG MANAGEMENT
+
+    this.createPost = function(post) {
+        return $http.post('/posts/create', post);
+    }
+
+    this.getUsersPosts = function(userId) {
+        var url = '/posts/user/' + userId;
+        return $http.get(url);
+    }
+
+    this.getPost = function(data) {
+        var url = '/posts/' + data.UserId + '/' + data.PostId;
+        return $http.get(url);
+    }
+
+    this.deletePost = function(id) {
+        var url = '/posts/' + id;
+        return $http.delete(url);
+    }
+
+    this.getRecent = function() {
+        return $http.get('/posts/recent');
+    }
+
+    this.postReply = function(reply) {
+        var url = '/posts/' + reply.PostId + '/reply'
+        return $http.post(url, reply);
+    }
+
+    this.deletePost = function(id) {
+        var url = '/posts/' + id;
+        return $http.delete(url);
     }
 
 }]);
