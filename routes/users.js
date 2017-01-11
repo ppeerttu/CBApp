@@ -14,14 +14,14 @@ function checkPassword(pass) {
     return regEx.test(pass);
 }
 
-/* for developing purposes*/
+/* for developing purposes
 router.get('/all', function (req, res, next) {
     Models.User.findAll().then(function(users) {
         res.json(users);
     }).error(function(error) {
         res.send(400).json(error);
     })
-})
+})*/
 
 
 // authenticating with facebook
