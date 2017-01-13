@@ -45,7 +45,7 @@
                 <ul class="media-list">
                     <li class="media">
                         <div class="media-body">
-                            <h4 class="media-heading">{{reply.User.firstName}} {{reply.User.lastName}}</h4>
+                            <h4 class="media-heading">{{reply.User.firstName}} {{(reply.User.lastName === 'not_set') ? null : reply.User.lastName}}</h4>
 
                             <p>
                                 {{reply.content}}
