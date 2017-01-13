@@ -6,8 +6,8 @@ module.exports = function (io) {
     var authentication = require('../utils/authentication');
     var Models = require('../models');
 
-//adding new room
-// POST /rooms
+    //adding new room
+    // POST /rooms
     router.post('/', authentication, function (req, res, next) {
         var roomToAdd = req.body;
         Models.Room.create(roomToAdd).then(function (room) {
@@ -15,16 +15,16 @@ module.exports = function (io) {
         });
     });
 
-// getting all rooms
-// GET /rooms
+    // getting all rooms
+    // GET /rooms
     router.get('/', authentication, function (req, res, next) {
         Models.Room.findAll().then(function (rooms) {
             res.json(rooms);
         });
     });
 
-// getting room with :id
-// GET /rooms/:id
+    // getting room with :id
+    // GET /rooms/:id
     router.get('/:id', authentication, function (req, res, next) {
         var roomId = req.params.id;
         Models.Room.findOne(roomId).then(function (room) {
@@ -32,7 +32,7 @@ module.exports = function (io) {
         });
     });
 
-// socket.io functionality
+    // socket.io functionality
     io.on('connection', function (socket) {
 
         // JOINING ROOM
@@ -47,7 +47,6 @@ module.exports = function (io) {
         socket.on('get:user', function (req) {
             console.log(req.SocketId + ' + normal id : ' + socket.id);
             if (req.SocketId !== socket.id) {
-                console.log('broadcasting nickname and fbid for user joining in room');
                 socket.broadcast.to(req.SocketId).emit('add:user', req);
             }
         });

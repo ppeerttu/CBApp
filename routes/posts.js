@@ -38,7 +38,8 @@ router.get('/user/:id', authenticate, function(req, res, next) {
             UserId: userId
         },
         include: {
-            model: Models.User
+            model: Models.User,
+            attributes: ['id', 'firstName', 'lastName', 'nickname']
         }
     }).then(function (posts) {
         res.json(posts);
@@ -60,11 +61,13 @@ router.get('/:userId/:id', function(req, res, next) {
             UserId: userId
         },
         include: [{
-            model: Models.User
+            model: Models.User,
+            attributes: ['id', 'firstName', 'lastName', 'nickname']
         }, {
             model: Models.Reply,
             include: {
-                model: Models.User
+                model: Models.User,
+                attributes: ['id', 'firstName', 'lastName', 'nickname']
             }
         }]
     }).then(function (post) {
@@ -108,7 +111,8 @@ router.get('/recent', authenticate, function(req, res, next) {
                 $gte: new Date(new Date() - 7 * 24 * 60 * 60 * 1000)
             }
         }, include: {
-            model: Models.User
+            model: Models.User,
+            attributes: ['id', 'firstName', 'lastName', 'nickname']
         }
     }).then(function (posts) {
         if (posts.length > 5) {
