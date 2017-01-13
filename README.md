@@ -235,3 +235,7 @@ This feature will be coming probably in the next major update.
 ### Participants -elements render sometimes poorly in chatroom
 
 This bug is currently at work, but seems to take root deeper than I originally thought. There is something I'm missing understanding either in basic JavaScript array behaviour or in AngularJS and probably $scope -variables.
+
+### No events or notifications
+
+If someone comments your post, you do not get any notification at this point. Some improvement might be coming up.
