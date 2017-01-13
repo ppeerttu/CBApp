@@ -40,7 +40,7 @@
                 <label>First name: </label><p class="primary"><strong>{{currentUser.firstName}}</strong></p>
             </div>
 
-            <div class="well">
+            <div class="well" ng-if="(currentUser.lastName === 'not_set')?false:true">
                 <label>Last name: </label><p class="primary"><strong>{{currentUser.lastName}}</strong></p>
             </div>
 

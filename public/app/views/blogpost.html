@@ -20,7 +20,7 @@
             <p class="lead">
                 Posted: <br />
                 {{post.createdAt | date: "d.M.y HH:mm"}}<br />
-                By {{post.User.firstName}} {{post.User.lastName}}
+                By {{post.User.firstName}} {{(post.User.lastName === 'not_set') ? null : post.User.lastName}}
             </p>
             <button class="btn btn-sm btn-danger" ng-if="postOwner" ng-click="deletePost()">Delete post</button>
             <div class="alert alert-danger" role="alert" ng-if="deleteError">
