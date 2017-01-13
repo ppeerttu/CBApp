@@ -231,3 +231,7 @@ IMPROVED: Users can now change password and nickname.
 ### No opportunity to search blogposts or view some older posts
 
 This feature will be coming probably in the next major update.
+
+### Participants -elements render sometimes poorly in chatroom
+
+This bug is currently at work, but seems to take root deeper than I originally thought. There is something I'm missing understanding either in basic JavaScript array behaviour or in AngularJS and probably $scope -variables.
