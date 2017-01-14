@@ -183,8 +183,8 @@ router.put('/update', function (req, res, next) {
         }
     }).then(function(user) {
         if (user === null || user.id === toUpdate.id) {
-                var pass = toUpdate.password;
-                bcrypt.hash(pass, null, null, function (err, hash) {
+            var pass = toUpdate.password;
+            bcrypt.hash(pass, null, null, function (err, hash) {
                     if (err) {
                         console.log(err);
                         res.status(400).json({error: 'Error occurred while creating passhash: ' + err});

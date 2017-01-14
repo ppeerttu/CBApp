@@ -219,8 +219,6 @@ never will be finished. Two badly executed behaviours still do stand out of the 
 
 ### Backend pass creation for Facebook user -- FIXED
 
-No unique password will be generated for Facebook user - instead same password will be set for all Facebook users.
-This flaw will be taken care of as soon as I can.
 
 ### No opportunity to change user data -- IMPROVED
 
@@ -232,9 +230,8 @@ IMPROVED: Users can now change password and nickname.
 
 This feature will be coming probably in the next major update.
 
-### Participants -elements render sometimes poorly in chatroom
+### Participants -elements render sometimes poorly in chatroom -- FIXED
 
-This bug is currently at work, but seems to take root deeper than I originally thought. There is something I'm missing understanding either in basic JavaScript array behaviour or in AngularJS and probably $scope -variables.
 
 ### No events or notifications
 

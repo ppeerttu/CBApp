@@ -1,11 +1,11 @@
-CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService', '$location', 'userLoggedIn',
+CBApp.controller('ChatController',
+    ['$rootScope', '$scope', 'Socket', 'APIService', '$location', 'userLoggedIn',
     function ($rootScope, $scope, Socket, APIService, $location, userLoggedIn) {
 
     //CHECKING USER AUTHENTICATION
     if (!userLoggedIn.data.nickname) {
         $location.path('/login');
     }
-
 
     //MAKING BASIC SETUP FOR SCOPE VARIABLES
     $scope.currentUser = userLoggedIn.data;
@@ -18,6 +18,8 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
         $scope.rooms = rooms;
     });
 
+
+
     //FUNCTION FOR CREATING ELEMENT WITH USER'S NICKNAME AND FACEBOOK PROFILE PHOTO
     //CALLS addElement(elem) WITH CREATED ELEMENT ON PARAMETER
     function addParticipantWithPhoto(data) {
@@ -27,7 +29,6 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
                 result++;
             }
         }
-        console.log("Result: " + result);
         if (result === 0) {
             $scope.elementsPrinted.push({id: data.id});
             var url = '/' + data.fbId;
@@ -72,7 +73,6 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
                 result++;
             }
         }
-        console.log("Result: " + result);
         if (result === 0) {
             $scope.elementsPrinted.push({id: data.id});
             var dom_div1 = document.createElement("div");
@@ -98,8 +98,8 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
 
     // GETS ELEMENT ON PARAMETER AND ADDS IT IN VIEW'S ELEMENT WITH ID #users-fixed
     function addElement(elem) {
-        var users = document.getElementById("users-fixed");
-        users.appendChild(elem);
+        var participants = document.getElementById("users-fixed");
+        participants.appendChild(elem);
 
     }
 
@@ -119,13 +119,14 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
         $scope.messages.push({
             nickname: 'User ' + data.nickname + ' has joined.'
         });
-        var search = {
-            nickname: data.nickname,
-            id: data.id
-        };
-        var index = $scope.users.indexOf(search);
-        if (index < 0) {
-            $scope.users.push(search);
+        var index = 0;
+        for (var i = 0; i < $scope.users.length; i++) {
+            if ($scope.users[i].id === data.id) {
+                index++;
+            }
+        }
+        if (index === 0) {
+            $scope.users.push({nickname: data.nickname, id: data.id});
             if (data.fbId !== 'not_set' && data.fbId !== null && $scope.currentUser.fbId !== 'not_set' && $scope.currentUser.fbId !== null) {
                 addParticipantWithPhoto(data);
             } else {
@@ -143,14 +144,14 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
         var leftElem = document.getElementById(data.id);
         elem.removeChild(leftElem);
         var removed = $scope.users.find(function (object) {
-            return object.id = data.id;
+            return object.id === data.id;
         });
         var index = $scope.users.indexOf(removed);
         if (index < 0) {
             $scope.users.splice(index, 1);
         }
-        var index = $scope.elementsPrinted.indexOf({id: data.id});
-        if (index < 0) {
+        var index2 = $scope.elementsPrinted.indexOf({id: data.id});
+        if (index2 < 0) {
             $scope.elementsPrinted.splice(index, 1);
         }
     });
@@ -165,13 +166,14 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
 
     //ADDING NEW USER IN ROOM TO PARTICIPANTS-ELEMENT
     Socket.on('add:user', function (data) {
-        var search = {
-            nickname: data.nickname,
-            id: data.id
-        };
-        var index = $scope.users.indexOf(search);
-        if (index < 0) {
-            $scope.users.push(search);
+        var index = 0;
+        for (var i = 0; i < $scope.users.length; i++) {
+            if ($scope.users[i].id === data.id) {
+                index++;
+            }
+        }
+        if (index === 0) {
+            $scope.users.push({nickname: data.nickname, id: data.id});
             if (data.fbId !== 'not_set' && data.fbId !== null && $scope.currentUser.fbId !== 'not_set' && $scope.currentUser.fbId !== null) {
                 addParticipantWithPhoto(data);
             } else {
@@ -181,7 +183,7 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
     });
 
     //UPDATING ROOMS, CALLED WHEN SOMEONE CREATES NEW ROOM
-    Socket.on('refresh:rooms', function (data) {
+    Socket.on('refresh:rooms', function () {
         APIService.getRooms().success(function (rooms) {
             $scope.rooms = rooms;
         });
@@ -210,10 +212,11 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
             Socket.emit('room:leave', {nickname: $scope.currentUser.nickname, RoomId: $scope.room.id, id: $scope.currentUser.id});
             $scope.room = null;
             $scope.inRoom = false;
-            $scope.users = [];
+            $scope.users.splice(0, $scope.users.length);
             $scope.messages = [];
             $scope.errorMessage = null;
             $rootScope.profile.RoomId = null;
+            $scope.elementsPrinted.length = 0;
         }
     };
 
@@ -225,14 +228,14 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
             while (elem.firstChild) {
                 elem.removeChild(elem.firstChild);
             }
-            $scope.elementsPrinted = [];
+            $scope.elementsPrinted.length = 0;
             APIService.addRoom(room).success(function (room) {
                 $scope.roomName = '';
                 Socket.emit('room:join', {RoomId: room.id, nickname: $scope.currentUser.nickname});
                 Socket.emit('new:room');
                 $scope.room = room;
                 $scope.inRoom = true;
-                $scope.users = [];
+                $scope.users.splice(0, $scope.users.length);
                 $scope.errorMessage = null;
                 $rootScope.profile.RoomId = room.id;
             });
@@ -250,11 +253,11 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
             while (elem.firstChild) {
                 elem.removeChild(elem.firstChild);
             }
-            $scope.elementsPrinted = [];
+            $scope.elementsPrinted.length = 0;
             APIService.getRoom(id).success(function (room) {
                 $scope.room = room;
                 $scope.inRoom = true;
-                $scope.users = [];
+                $scope.users.splice(0, $scope.users.length);
                 $scope.errorMessage = null;
                 $rootScope.profile.RoomId = room.id;
                 Socket.emit('room:join', {RoomId: room.id, nickname: $scope.currentUser.nickname, fbId: $scope.currentUser.fbId, id: $scope.currentUser.id});
@@ -266,8 +269,14 @@ CBApp.controller('ChatController',['$rootScope', '$scope', 'Socket', 'APIService
 
     //=================================================================================================
     //HELPER METHODS TO PREVENT USER LEAVING CHAT-PAGE WITHOUT LEAVING ROOM
-    $scope.$on('$locationChangeStart', function (event, next, current) {
+    var locationChange = $scope.$on('$locationChangeStart', function (event, next, current) {
         $scope.leaveRoom();
+        $scope.users = undefined;
+        $scope.elementsPrinted = undefined;
+    });
+
+    $scope.$on('$destroy', function() {
+        locationChange();
     });
 
     window.onbeforeunload = function (e) {

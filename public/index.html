@@ -23,13 +23,21 @@
         <script src="bower_components/socket.io.min.js"></script>
 
         <!-- CBApp scripts -->
-        <script src="app/app.min.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/controllers/blogController.js"></script>
+        <script src="app/controllers/chatController.js"></script>
+        <script src="app/controllers/mainController.js"></script>
+        <script src="app/controllers/markdownController.js"></script>
+        <script src="app/controllers/profileController.js"></script>
+        <script src="app/controllers/userController.js"></script>
+        <script src="app/services/APIService.js"></script>
+        <script src="app/services/socket.js"></script>
 
         <!-- Facebook scripts -->
         <script>
             window.fbAsyncInit = function () {
                 FB.init({
-                    appId: '374990816179923',
+                    appId: 'your-fb-app-id',
                     xfbml: true,
                     version: 'v2.8',
                     status: true,

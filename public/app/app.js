@@ -112,11 +112,12 @@ CBApp.run(['$rootScope', '$location', 'APIService', '$cookies', function ($rootS
     // Providing logout -method for root element
     $rootScope.logOut = function () {
         APIService.logout().success(function () {
+            FB.logout(function () {
+            });
+            $rootScope.profile = undefined;
+            $rootScope.userLoggedIn = undefined;
+            $cookies.remove('profile');
             $location.path('/login');
-            $rootScope.profile = null;
         });
-        FB.logout(function () {
-        });
-        $cookies.remove('profile');
     };
 }]);
