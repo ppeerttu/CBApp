@@ -224,7 +224,7 @@ never will be finished. Two badly executed behaviours still do stand out of the 
 
 IMPROVED: Users can now change password and nickname.
 
-### No opportunity to search blogposts or view some older posts
+### No opportunity to search blogposts or view some older posts -- IMPROVED
 
 This feature will be coming probably in the next major update.
 

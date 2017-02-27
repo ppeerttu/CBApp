@@ -1,0 +1,10 @@
+{
+  "disallowTrailingComma": true,
+  "requireSpaceAfterBinaryOperators": true,
+  "requireSpaceBeforeBinaryOperators": true,
+  "requireSpacesInFunction": {
+    "beforeOpeningCurlyBrace": true
+  },
+  "validateIndentation": 4,
+  "validateParameterSeparator": ", ",
+}

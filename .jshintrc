@@ -1,0 +1,33 @@
+{
+
+  // Enforcing
+  "bitwise"         : true,
+  "curly"           : true,
+  "eqeqeq"          : true,
+  "forin"           : true,
+  "futurehostile"   : true,
+  "latedef"         : true,
+  "maxdepth"        : 3,
+  "nocomma"         : true,
+  "nonbsp"          : true,
+  "nonew"           : true,
+  "singleGroups"    : true,
+  "undef"           : true,
+  "unused"          : true,
+
+  // Relaxing
+
+  // Environments
+  "browser"         : true,
+  "devel"           : true,
+  "jquery"          : true,
+  "node"            : true,
+  "esversion"       : 6,
+
+  // Globals
+  "globals"         : {
+    "angular"       : true,
+    "nr"            : true
+  }
+
+}
