@@ -52,7 +52,7 @@ router.get('/user/:id', authenticate, function(req, res, next) {
 
 // get particular post
 // GET /posts/{user-id}/{id}
-router.get('/:userId/:id', function(req, res, next) {
+router.get('/post/:userId/:id', function(req, res, next) {
     var userId = req.params.userId;
     var postId = req.params.id;
     Models.Post.findOne({
@@ -134,6 +134,29 @@ router.post('/:id/reply', authenticate, function(req, res, next) {
     }).error(function (error) {
         console.log(error);
         res.send(400).json({error: 'Something went wrong while creating reply!'});
+    });
+});
+
+router.get('/search/:term', function(req, res, next) {
+    var searchTerm = req.params.term;
+    console.log('posts/search/:term ' + searchTerm);
+
+    Models.Post.findAll({
+      where: {
+        $or: [
+          { 'title': { like: '%' + searchTerm + '%' } },
+          { 'content': { like: '%' + searchTerm + '%' } }
+        ]
+      },
+      include: {
+          model: Models.User,
+          attributes: ['id', 'nickname', 'firstName', 'lastName']
+       }
+    }).then(function (reply) {
+        res.json(reply);
+    }).error(function (error) {
+        console.log(error);
+        res.sendStatus(400).json({error: 'Something went wrong while searching for posts!'});
     });
 });
 

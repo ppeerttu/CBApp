@@ -58,7 +58,7 @@ CBApp.service('APIService',['$http', function($http) {
     }
 
     this.getPost = function(data) {
-        var url = '/posts/' + data.UserId + '/' + data.PostId;
+        var url = '/posts/post/' + data.UserId + '/' + data.PostId;
         return $http.get(url);
     }
 
@@ -79,6 +79,11 @@ CBApp.service('APIService',['$http', function($http) {
     this.deletePost = function(id) {
         var url = '/posts/' + id;
         return $http.delete(url);
+    }
+
+    this.searchPost = function(searchTerm) {
+        var url = '/posts/search/' + searchTerm;
+        return $http.get(url);
     }
 
 }]);

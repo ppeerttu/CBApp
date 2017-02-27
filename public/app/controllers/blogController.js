@@ -5,6 +5,9 @@ CBApp.controller('BlogController', ['$scope', 'APIService', '$routeParams', 'use
         // or scroll all posts on mainblogs -site
         // If user isn't logged in, user can't scroll other posts
         $scope.newReply = {};
+        $scope.searchTerm = null;
+        $scope.searchPosts = null;
+        $scope.searchError = null;
         if (typeof $routeParams.id !== 'undefined') {
             APIService.getPost({
                 PostId: $routeParams.id,
@@ -70,6 +73,18 @@ CBApp.controller('BlogController', ['$scope', 'APIService', '$routeParams', 'use
                     $scope.deleteError= error.error;
                 });
             }
+        }
+
+        // search post with inserted search term
+        // if error occurs, throw it at the user
+        $scope.searchPost = function() {
+            APIService.searchPost($scope.searchTerm).success(function(posts) {
+                console.log(posts);
+                $scope.searchPosts = posts;
+            }).error(function(error) {
+                $scope.searchError = error.error;
+                $scope.searchPosts = null;
+            });
         }
 
 

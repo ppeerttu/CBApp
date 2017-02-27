@@ -36,7 +36,6 @@ router.post('/fb_authenticate', function (req, res, next) {
         }
     }).then(function (user) {
         if (user) {
-            console.log('Fb-user authenticated');
             req.session.userId = user.id;
             user.password = '';
             res.json(user);
@@ -52,7 +51,6 @@ router.post('/fb_authenticate', function (req, res, next) {
                         lastName: fbUser.lastName,
                         fbId: fbUser.fbId
                     }).then(function (response) {
-                        console.log('Userdata connected with Facebook and authenticated');
                         response.password  = '';
                         res.json(response);
                     });
@@ -69,7 +67,6 @@ router.post('/fb_authenticate', function (req, res, next) {
                         } else {
                             fbUser.password = hash;
                             Models.User.create(fbUser).then(function (user) {
-                                console.log('Created new user via FB-login with nickname: ' + user.nickname);
                                 req.session.userId = user.id;
                                 user.password = '';
                                 res.json(user);
@@ -105,10 +102,8 @@ router.post('/', function (req, res, next) {
                     console.log(err);
                 } else {
                     userToAdd.password = hash;
-                    console.log("Created passHash: " + hash);
                     userToAdd.fbId = 'not_set';
                     Models.User.create(userToAdd).then(function (added) {
-                        console.log("User added with nickname: " + added.nickname);
                         added.password = '';
                         res.json(added);
                     });
@@ -130,7 +125,6 @@ router.post('/authenticate', function (req, res, next) {
         if (user) {
             bcrypt.compare(userToCheck.password, user.password, function (err, ans) {
                 if (ans) {
-                    console.log("User logged in with nickname: " + user.nickname);
                     req.session.userId = user.id;
                     user.password = '';
                     res.json(user);
@@ -165,7 +159,6 @@ router.get('/current-auth', function (req, res, next) {
 
 // log user out
 router.get('/logout', function (req, res, next) {
-    console.log("UserId " + req.session.userId + " session stopped");
     req.session.userId = null;
     res.sendStatus(200);
 });
