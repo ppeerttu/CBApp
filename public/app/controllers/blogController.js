@@ -19,6 +19,7 @@ CBApp.controller('BlogController', ['$scope', 'APIService', '$routeParams', 'use
                 $scope.postOwner = (post.UserId === userLoggedIn.data.id) ? true : false;
             }).error(function(error) {
                 console.log(error);
+                $location.path('/main');
             });
         }  else {
             if (!userLoggedIn.data.nickname) {
