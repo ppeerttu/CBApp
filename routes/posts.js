@@ -137,6 +137,8 @@ router.post('/:id/reply', authenticate, function(req, res, next) {
     });
 });
 
+// search for blogposts with searchTerm
+// GET /search/{term}
 router.get('/search/:term', function(req, res, next) {
     var searchTerm = req.params.term;
     console.log('posts/search/:term ' + searchTerm);

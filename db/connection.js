@@ -10,7 +10,7 @@ var sequelize = new Sequelize('postgres://wzdpolrthisfoi:00375316fb321210f036039
 var sequelize = new Sequelize('cbapp', '', '', {
     dialect: 'sqlite',
     storage: 'db/CBApp.database'
-});*/
+}); */
 
 module.exports = {
     DataTypes: Sequelize,
