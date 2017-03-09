@@ -6,7 +6,7 @@ perttu.karna@gmail.com
 
 
 ## About
-This web app is made as hobby to improve web-developing skills and deepen my understanding of basic tools for both front- and
+This web app is made as a hobby to improve web-developing skills and deepen my understanding of basic tools for both front- and
 backend developing. Currently this app is running in Heroku https://arcane-beyond-54795.herokuapp.com/#/login and
 it provides simple chat functionality with different rooms user can join and create and a blog service as well.
 
@@ -214,8 +214,8 @@ Contains all JavaScript code in /public/app -folder in minified form.
 
 ## Known issues
 
-As you can see when looking into the code or using the running app, this project is still badly in development and probably
-never will be finished. Two badly executed behaviours still do stand out of the app:
+As you can see when looking into the code or using the running app, this project is still in development and probably
+will never be finished. Here is some of the bugs
 
 ### Backend pass creation for Facebook user -- FIXED
 
@@ -226,7 +226,7 @@ IMPROVED: Users can now change password and nickname.
 
 ### No opportunity to search blogposts or view some older posts -- IMPROVED
 
-This feature will be coming probably in the next major update.
+IMPROVED: Opportunity to search posts.
 
 ### Participants -elements render sometimes poorly in chatroom -- FIXED
 
