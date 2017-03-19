@@ -2,6 +2,7 @@ var express = require('express');
 var bcrypt = require('../node_modules/bcrypt-nodejs/bCrypt');
 var router = express.Router();
 var Models = require('../models');
+var authenticate = require('../utils/authentication');
 
 // backend regEx-validation for email
 function checkEmail(email) {
@@ -158,13 +159,13 @@ router.get('/current-auth', function (req, res, next) {
 });
 
 // log user out
-router.get('/logout', function (req, res, next) {
+router.get('/logout', authenticate, function (req, res, next) {
     req.session.userId = null;
     res.sendStatus(200);
 });
 
 // update password and nickname
-router.put('/update', function (req, res, next) {
+router.put('/update', authenticate, function (req, res, next) {
     var toUpdate = req.body;
     //validating update info
     if (toUpdate.nickname.length < 3 || !checkPassword(toUpdate.password)) {
