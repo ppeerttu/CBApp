@@ -1,15 +1,9 @@
 # CBApp
 An AngularJS -based web application with simple NodeJS backend
 
-Author Perttu Kärnä
-perttu.karna@gmail.com
+**ARCHIVED**
 
-
-## About
-This web app is made as a hobby to improve web-developing skills and deepen my understanding of basic tools for both front- and
-backend developing. Currently this app is running in Heroku https://arcane-beyond-54795.herokuapp.com/#/login and
-it provides simple chat functionality with different rooms user can join and create and a blog service as well.
-
+This application has been made as a hobby and is no longer under development.
 
 ## Techs
 
